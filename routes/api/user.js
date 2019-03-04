@@ -137,4 +137,23 @@ router.post("/cartlist", checkAuth, (req, res, next) => {
     });
 });
 
+router.post("/addcart", (req, res, next) => {
+  User.findOne({ _id: req.body.userId })
+    .then(user => {
+      if (user.length < 1) {
+        return res.status(401).json({
+          message: "user not found"
+        });
+      }
+      user.carts.push(req.body.cart);
+      user.save().then(res.status(200).json({ success: true }));
+    })
+    .catch(err => {
+      console.log(err);
+      res.status(500).json({
+        error: err
+      });
+    });
+});
+
 module.exports = router;

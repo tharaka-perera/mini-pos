@@ -28,21 +28,18 @@ class App extends Component {
   render() {
     return (
       <Provider store={store}>
-        <Router>
-          <div className="App">
-            <Redirect from="*" to="/" />
-            <AppContainer />
-            <CartList />
+        <div className="App">
+          <AppContainer />
+          {/* <CartList /> */}
 
-            {/* <AppNavBar />
+          {/* <AppNavBar />
             <Container>
               <Login />
               <ItemModal />
               <ShoppingList />
               <Cart />
             </Container> */}
-          </div>
-        </Router>
+        </div>
       </Provider>
     );
   }

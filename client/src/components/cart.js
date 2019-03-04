@@ -49,7 +49,6 @@ class Cart extends Component {
     return (
       <React.Fragment>
         <div className="container" style={{ padding: "150px 0 100px 0" }}>
-          <AppNavBar />
           <ItemModal />
           <div className="card shopping-cart">
             <div className="card-header bg-dark text-light">

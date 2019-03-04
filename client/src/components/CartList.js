@@ -18,6 +18,8 @@ class CartList extends Component {
     this.props.getCartList(item);
   }
 
+  editCart(id) {}
+
   render() {
     const { userId, carts } = this.props.cartList;
     if (!carts) {
@@ -27,7 +29,7 @@ class CartList extends Component {
       <React.Fragment>
         <div>
           {carts.map(({ _id, items }) => (
-            <div
+            <TransitionGroup
               id="accordion"
               className="container"
               role="tablist"
@@ -38,13 +40,21 @@ class CartList extends Component {
                 id={"item" + _id}
                 style={{ marginBottom: "1rem" }}
               >
-                Toggle
+                Show Cart
+              </Button>
+              <Button
+                color="primary"
+                id={"item"}
+                onClick={_id => this.editCart(_id)}
+                style={{ marginBottom: "1rem" }}
+              >
+                Edit Cart
               </Button>
               <UncontrolledCollapse toggler={"item" + _id}>
                 <Card>
                   <CardBody>
                     {items.map(({ count, itm }) => (
-                      <CSSTransition classNames="fade" timeout={300}>
+                      <CSSTransition classNames="fade" timeout={800}>
                         <div key={itm._id}>
                           <div className="row">
                             <div className="col-12 col-sm-12 col-md-2 text-center">
@@ -105,7 +115,7 @@ class CartList extends Component {
                   </CardBody>
                 </Card>
               </UncontrolledCollapse>
-            </div>
+            </TransitionGroup>
           ))}
         </div>
       </React.Fragment>
