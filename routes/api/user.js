@@ -117,7 +117,10 @@ router.delete("/:userId", checkAuth, (req, res, next) => {
 
 router.post("/cartlist", checkAuth, (req, res, next) => {
   User.findOne({ _id: req.body.userId })
-    .populate("carts")
+    .populate({
+      path: "carts",
+      populate: { path: "items.itm" }
+    })
     .then(user => {
       if (user.length < 1) {
         return res.status(401).json({
