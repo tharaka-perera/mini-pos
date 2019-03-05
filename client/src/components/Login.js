@@ -2,15 +2,6 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { loginUser, authCheck } from "../actions/loginAction";
 import PropTypes from "prop-types";
-import {
-  Button,
-  Form,
-  Grid,
-  Header,
-  Image,
-  Message,
-  Segment
-} from "semantic-ui-react";
 
 class Login extends Component {
   state = {
@@ -138,9 +129,9 @@ class Login extends Component {
 }
 
 Login.propTypes = {
-  loginUser: PropTypes.func.isRequired,
-  authCheck: PropTypes.func.isRequired,
-  login: PropTypes.object.isRequired
+  loginUser: PropTypes.func,
+  authCheck: PropTypes.func,
+  login: PropTypes.object
 };
 
 const mapStateToProps = state => ({

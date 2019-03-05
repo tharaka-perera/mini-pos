@@ -4,37 +4,39 @@ import {
   UPDATE_CART_ITEM,
   DELETE_CART_ITEM,
   CART_ITEMS_LOADING
-} from '../actions/types'
+} from "../actions/types";
 
 const initialState = {
   cartItems: [],
   total: 0,
-  cartLoading: false
-}
+  cartLoading: false,
+  _id: ""
+};
 
-export default function (state = initialState, action) {
+export default function(state = initialState, action) {
   switch (action.type) {
     case GET_CART:
-      var sum = 0
-      action.payload.map(k => {
+      var sum = 0;
+      action.payload.items.map(k => {
         sum =
           Number.parseFloat(k.itm.price).toFixed(2) * Number.parseInt(k.count) +
-          sum
-      })
+          sum;
+      });
       // console.log(sum);
       return {
         ...state,
         total: sum,
-        cartItems: action.payload,
-        cartLoading: false
-      }
+        cartItems: action.payload.items,
+        cartLoading: false,
+        _id: action.payload._id
+      };
     case DELETE_CART_ITEM:
       return {
         ...state,
         cartItems: state.cartItems.filter(
           obj => obj.itm._id !== action.payload.params.itm
         )
-      }
+      };
     case ADD_CART_ITEM:
       return {
         ...state,
@@ -52,35 +54,35 @@ export default function (state = initialState, action) {
           },
           ...state.cartItems
         ]
-      }
+      };
     case UPDATE_CART_ITEM:
-      var sum = 0
+      var sum = 0;
       state.cartItems.map(obj => {
         // console.log("obj", obj);
         // console.log("params", action.payload.params);
         if (obj.itm._id === action.payload.params.itm) {
-          obj.count = action.payload.params.count
+          obj.count = action.payload.params.count;
           // console.log("inside");
         }
-      })
+      });
       // console.log(state.cartItems);
       state.cartItems.map(k => {
         sum =
           Number.parseFloat(k.itm.price).toFixed(2) * Number.parseInt(k.count) +
-          sum
-      })
-      console.log(state.cartItems)
+          sum;
+      });
+      console.log(state.cartItems);
       return {
         ...state,
         total: sum
         // cartItems: state.items.filter()
-      }
+      };
     case CART_ITEMS_LOADING:
       return {
         ...state,
         cartLoading: true
-      }
+      };
     default:
-      return state
+      return state;
   }
 }

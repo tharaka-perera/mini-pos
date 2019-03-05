@@ -1,4 +1,3 @@
-import { Container, ListGroup, ListGroupItem, Button } from "reactstrap";
 import { CSSTransition, TransitionGroup } from "react-transition-group";
 import React, { Component } from "react";
 import { connect } from "react-redux";
@@ -17,13 +16,13 @@ import PropTypes from "prop-types";
 
 class Cart extends Component {
   componentDidMount() {
-    this.props.getCartItems("5c78c0ff8f01aa39dbb9b12b");
+    //this.props.getCartItems("5c78c0ff8f01aa39dbb9b12b");
     this.props.getItems();
   }
 
   onDeleteClick = id => {
     const newItem = {
-      _id: "5c78c0ff8f01aa39dbb9b12b",
+      _id: this.props.cart._id,
       delete: "",
       itm: id
     };
@@ -32,7 +31,7 @@ class Cart extends Component {
 
   onUpdate = (id, val) => {
     const newItem = {
-      _id: "5c78c0ff8f01aa39dbb9b12b",
+      _id: this.props.cart._id,
       itm: id,
       count: val
     };
@@ -48,7 +47,7 @@ class Cart extends Component {
     }
     return (
       <React.Fragment>
-        <div className="container" style={{ padding: "150px 0 100px 0" }}>
+        <div className="container">
           <ItemModal />
           <div className="card shopping-cart">
             <div className="card-header bg-dark text-light">
@@ -63,8 +62,8 @@ class Cart extends Component {
             <TransitionGroup className="card-body">
               {/* PRODUCT */}
               {cartItems.map(({ count, itm }) => (
-                <CSSTransition classNames="fade" timeout={300}>
-                  <div key={itm._id}>
+                <CSSTransition classNames="fade" timeout={300} key={itm._id}>
+                  <div>
                     <div className="row">
                       <div className="col-12 col-sm-12 col-md-2 text-center">
                         <img

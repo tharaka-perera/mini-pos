@@ -8,6 +8,7 @@ const checkAuth = require("../middleware/check-auth");
 const jwtKEY = require("../../config/keys").jwtKEY;
 
 const User = require("../../models/User");
+const Cart = require("../../models/Cart");
 
 router.get("/auth", checkAuth, (req, res) => {
   res.json({ message: true });
@@ -154,6 +155,40 @@ router.post("/addcart", (req, res, next) => {
         error: err
       });
     });
+});
+
+router.post("/removecart", (req, res, next) => {
+  User.findById(req.body._id, function(err, user) {
+    if (err) {
+      console.log(err);
+      res.status(404).json({ success: false });
+      return;
+    } else {
+      User.updateOne(
+        { _id: req.body._id },
+        {
+          $pull: {
+            carts: req.body.cart
+          }
+        },
+        function(err, mod) {
+          if (err) {
+            res.json({ success: false });
+          } else {
+            Cart.findByIdAndDelete(req.body.cart, function(err, cart) {
+              if (err) {
+                console.log(err);
+                res.status(404).json({ success: false });
+                return;
+              } else {
+                res.status(200).json({ success: true });
+              }
+            });
+          }
+        }
+      );
+    }
+  });
 });
 
 module.exports = router;

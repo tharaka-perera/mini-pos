@@ -56,9 +56,9 @@ class AppContainer extends Component {
 }
 
 Login.propTypes = {
-  loginUser: PropTypes.func.isRequired,
-  authCheck: PropTypes.func.isRequired,
-  login: PropTypes.object.isRequired
+  loginUser: PropTypes.func,
+  authCheck: PropTypes.func,
+  login: PropTypes.object
 };
 
 const mapStateToProps = function(state) {

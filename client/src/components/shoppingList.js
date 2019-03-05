@@ -57,7 +57,7 @@ class ShoppingList extends Component {
     availableCount
   ) => {
     const newItem = {
-      _id: "5c78c0ff8f01aa39dbb9b12b",
+      _id: this.props.cart._id,
       itm: id,
       count: val,
       name: name,

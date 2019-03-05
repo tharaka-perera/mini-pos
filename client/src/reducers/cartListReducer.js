@@ -1,4 +1,9 @@
-import { GET_CART_LIST, CART_LIST_LOADING } from "../actions/types";
+import {
+  GET_CART_LIST,
+  CART_LIST_LOADING,
+  ADD_CART,
+  REMOVE_CART
+} from "../actions/types";
 const initialState = {
   userId: "",
   carts: [],
@@ -12,6 +17,28 @@ export default function(state = initialState, action) {
         ...state,
         carts: action.payload.carts,
         userId: action.payload._id,
+        cartsLoading: false
+      };
+    case ADD_CART:
+      const ids = state.carts.map(cart => cart._id);
+      return {
+        ...state,
+        carts: [
+          {
+            _id: action.payload.carts.filter(x => !ids.includes(x))[0],
+            items: []
+          },
+          ...state.carts
+        ],
+        cartsLoading: false
+      };
+    case REMOVE_CART:
+      console.log(action.payload.params);
+      return {
+        ...state,
+        carts: state.carts.filter(
+          obj => obj._id !== action.payload.params.cart
+        ),
         cartsLoading: false
       };
     case CART_LIST_LOADING:

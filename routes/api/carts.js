@@ -8,6 +8,7 @@ const checkAuth = require("../middleware/check-auth");
 
 const Cart = require("../../models/Cart");
 const Item = require("../../models/Item");
+const User = require("../../models/User");
 
 router.get("/:id", checkAuth, (req, res) => {
   Cart.findById(req.params.id)
@@ -15,12 +16,7 @@ router.get("/:id", checkAuth, (req, res) => {
     .then(items => res.json(items));
 });
 
-router.post("/", checkAuth, (req, res) => {
-  //console.log(req);
-  //console.log("seprator......................................................");
-  //console.log(newCart);
-
-  //newCart.save().then(item => res.json(item));
+router.post("/", (req, res) => {
   if (req.body.hasOwnProperty("delete")) {
     Cart.findById(req.body._id, function(err, cart) {
       if (err) {
@@ -69,19 +65,6 @@ router.post("/", checkAuth, (req, res) => {
               }
             }
           );
-          // cart.update(
-          //   { "items.itm": req.body.itm },
-          //   {
-          //     $set: {
-          //       count: req.body.count
-          //     }
-          //   },
-          //   function(err) {
-          //     let pushItm = { itm: req.body.itm, count: req.body.count };
-          //     cart.items.push(pushItm);
-          //     cart.save().then(item => res.json(item));
-          //   }
-          // );
         }
       });
     } else {
@@ -91,7 +74,24 @@ router.post("/", checkAuth, (req, res) => {
         items: []
       });
 
-      newCart.save().then(item => res.json(item));
+      newCart.save().then(item => {
+        User.findOne({ _id: req.body.userId })
+          .then(user => {
+            if (user.length < 1) {
+              return res.status(401).json({
+                message: "user not found"
+              });
+            }
+            user.carts.push(item._id);
+            user.save().then(res.status(200).json(user));
+          })
+          .catch(err => {
+            console.log(err);
+            res.status(500).json({
+              error: err
+            });
+          });
+      });
     }
   }
 });

@@ -12,7 +12,7 @@ export const getCartItems = id => dispatch => {
   return axios.get(`/api/cart/${id}`).then(res => {
     dispatch({
       type: GET_CART,
-      payload: res.data.items
+      payload: res.data
     });
   });
 };
