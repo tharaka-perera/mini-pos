@@ -3,7 +3,8 @@ import {
   GET_CART_LIST,
   CART_LIST_LOADING,
   ADD_CART,
-  REMOVE_CART
+  REMOVE_CART,
+  CONFIRM_CART
 } from "./types";
 
 export const getCartList = item => dispatch => {
@@ -24,6 +25,15 @@ export const addCart = item => dispatch => {
       payload: res.data
     });
   });
+};
+
+export const confirmCart = item => dispatch => {
+  return axios.post("/api/cart/confirm", item).then(res =>
+    dispatch({
+      type: CONFIRM_CART,
+      payload: res.data
+    })
+  );
 };
 
 export const removeCart = item => dispatch => {

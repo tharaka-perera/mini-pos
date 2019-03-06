@@ -16,3 +16,4 @@ export const GET_CART_LIST = "GET_CART_LIST";
 export const CART_LIST_LOADING = "CART_LIST_LOADING";
 export const ADD_CART = "ADD_CART";
 export const REMOVE_CART = "REMOVE_CART";
+export const CONFIRM_CART = "CONFIRM_CART";

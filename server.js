@@ -13,7 +13,7 @@ const app = express();
 
 //Middleware
 app.use(bodyParser.json());
-//app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.urlencoded({ extended: true }));
 
 //cookie parser
 app.use(cookieParser());

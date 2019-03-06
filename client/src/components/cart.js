@@ -40,6 +40,8 @@ class Cart extends Component {
     this.props.updateCartItem(newItem);
   };
 
+  confirmCart = () => {};
+
   render() {
     const { cartItems, total } = this.props.cart;
     if (!cartItems) {
@@ -54,9 +56,6 @@ class Cart extends Component {
               <i className="fa fa-shopping-cart" aria-hidden="true" />
               <span> </span>
               Shopping cart
-              {/* <a href className="btn btn-outline-info btn-sm float-right">
-                Order List
-              </a> */}
               <div className="clearfix" />
             </div>
             <TransitionGroup className="card-body">
@@ -165,7 +164,12 @@ class Cart extends Component {
             </TransitionGroup>
             <div className="card-footer">
               <div className="float-right col-12" style={{ margin: "10px" }}>
-                <button className="btn btn-success float-left">Checkout</button>
+                <button
+                  className="btn btn-success float-left"
+                  onClick={this.confirmCart}
+                >
+                  Confirm
+                </button>
                 <div
                   className="float-right"
                   style={{ margin: "5px" }}

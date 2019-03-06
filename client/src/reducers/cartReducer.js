@@ -58,24 +58,18 @@ export default function(state = initialState, action) {
     case UPDATE_CART_ITEM:
       var sum = 0;
       state.cartItems.map(obj => {
-        // console.log("obj", obj);
-        // console.log("params", action.payload.params);
         if (obj.itm._id === action.payload.params.itm) {
           obj.count = action.payload.params.count;
-          // console.log("inside");
         }
       });
-      // console.log(state.cartItems);
       state.cartItems.map(k => {
         sum =
           Number.parseFloat(k.itm.price).toFixed(2) * Number.parseInt(k.count) +
           sum;
       });
-      console.log(state.cartItems);
       return {
         ...state,
         total: sum
-        // cartItems: state.items.filter()
       };
     case CART_ITEMS_LOADING:
       return {

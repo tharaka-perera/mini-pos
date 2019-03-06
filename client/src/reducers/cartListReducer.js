@@ -2,7 +2,8 @@ import {
   GET_CART_LIST,
   CART_LIST_LOADING,
   ADD_CART,
-  REMOVE_CART
+  REMOVE_CART,
+  CONFIRM_CART
 } from "../actions/types";
 const initialState = {
   userId: "",
@@ -40,6 +41,10 @@ export default function(state = initialState, action) {
           obj => obj._id !== action.payload.params.cart
         ),
         cartsLoading: false
+      };
+    case CONFIRM_CART:
+      return {
+        ...state
       };
     case CART_LIST_LOADING:
       return {

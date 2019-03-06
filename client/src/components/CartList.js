@@ -14,7 +14,8 @@ import {
   getCartList,
   setCartsLoading,
   addCart,
-  removeCart
+  removeCart,
+  confirmCart
 } from "../actions/cartListActions";
 import { getCartItems } from "../actions/cartActions";
 import ItemModal from "./ItemModal";
@@ -51,6 +52,11 @@ class CartList extends Component {
   removeCart(id) {
     const item = { _id: "5c77c68f072a5f11776492e8", cart: id };
     this.props.removeCart(item);
+  }
+
+  confirmCart(id) {
+    const item = { _id: id, confirmed: true };
+    this.props.confirmCart(item);
   }
 
   toggle = () => {
@@ -126,6 +132,14 @@ class CartList extends Component {
                   style={{ marginBottom: "1rem" }}
                 >
                   Remove Cart
+                </Button>
+                <Button
+                  color="primary"
+                  id={"confirmed" + _id}
+                  onClick={this.confirmCart.bind(this, _id)}
+                  style={{ marginBottom: "1rem" }}
+                >
+                  Confirm Cart
                 </Button>
                 <UncontrolledCollapse toggler={"item" + _id}>
                   <Card>
@@ -231,6 +245,7 @@ CartList.propTypes = {
   getCartList: PropTypes.func.isRequired,
   addCart: PropTypes.func.isRequired,
   removeCart: PropTypes.func.isRequired,
+  confirmCart: PropTypes.func.isRequired,
   cartList: PropTypes.object.isRequired
 };
 
@@ -245,6 +260,7 @@ export default connect(
     getCartItems,
     setCartsLoading,
     addCart,
+    confirmCart,
     removeCart
   }
 )(CartList);

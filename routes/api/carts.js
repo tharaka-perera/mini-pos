@@ -96,6 +96,22 @@ router.post("/", (req, res) => {
   }
 });
 
+router.post("/confirm", (req, res) => {
+  Cart.findByIdAndUpdate(
+    req.body._id,
+    { confirmed: req.body.confirmed },
+    function(err, doc) {
+      if (err) {
+        console.log(err);
+        res.status(500).json({ success: false });
+        return;
+      } else {
+        res.status(200).json({ success: true });
+      }
+    }
+  );
+});
+
 router.delete("/:id", checkAuth, (req, res) => {
   Cart.findById(req.params.id)
     .then(item => item.remove().then(() => res.json({ success: true })))
