@@ -31,7 +31,7 @@ export const confirmCart = item => dispatch => {
   return axios.post("/api/cart/confirm", item).then(res =>
     dispatch({
       type: CONFIRM_CART,
-      payload: res.data
+      payload: { data: res.data, params: item }
     })
   );
 };

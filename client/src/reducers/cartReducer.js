@@ -31,11 +31,19 @@ export default function(state = initialState, action) {
         _id: action.payload._id
       };
     case DELETE_CART_ITEM:
+      var sum = 0;
+      var cartTemp = state.cartItems.filter(
+        obj => obj.itm._id !== action.payload.params.itm
+      );
+      cartTemp.map(k => {
+        sum =
+          Number.parseFloat(k.itm.price).toFixed(2) * Number.parseInt(k.count) +
+          sum;
+      });
       return {
         ...state,
-        cartItems: state.cartItems.filter(
-          obj => obj.itm._id !== action.payload.params.itm
-        )
+        cartItems: cartTemp,
+        total: sum
       };
     case ADD_CART_ITEM:
       return {
@@ -53,7 +61,11 @@ export default function(state = initialState, action) {
             count: action.payload.itemData.count
           },
           ...state.cartItems
-        ]
+        ],
+        total:
+          state.total +
+          Number.parseFloat(action.payload.itemData.price).toFixed(2) *
+            Number.parseInt(action.payload.itemData.count)
       };
     case UPDATE_CART_ITEM:
       var sum = 0;

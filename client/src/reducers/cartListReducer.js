@@ -25,11 +25,11 @@ export default function(state = initialState, action) {
       return {
         ...state,
         carts: [
+          ...state.carts,
           {
             _id: action.payload.carts.filter(x => !ids.includes(x))[0],
             items: []
-          },
-          ...state.carts
+          }
         ],
         cartsLoading: false
       };
@@ -43,8 +43,17 @@ export default function(state = initialState, action) {
         cartsLoading: false
       };
     case CONFIRM_CART:
+      const index = state.carts.findIndex(
+        cart => cart._id === action.payload.params._id
+      );
+      console.log(index);
       return {
-        ...state
+        ...state,
+        carts: state.carts.map((cart, i) =>
+          i === index
+            ? { ...cart, confirmed: action.payload.params.confirmed }
+            : cart
+        )
       };
     case CART_LIST_LOADING:
       return {

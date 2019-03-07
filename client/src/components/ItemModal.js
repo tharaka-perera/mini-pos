@@ -48,24 +48,19 @@ class ItemModal extends Component {
   render() {
     return (
       <div>
-        <Button
-          color="dark"
-          style={{ marginBottom: "1px" }}
-          onClick={this.toggle}
-        >
-          Add Item
-        </Button>
-
         <Modal
           isOpen={this.state.modal}
           toggle={this.toggle}
           className="wide-modal"
         >
-          <ModalHeader toggle={this.toggle}>Add to Shopping List</ModalHeader>
+          <ModalHeader toggle={this.toggle}>Add items to cart</ModalHeader>
           <ModalBody>
             <ShoppingList />
           </ModalBody>
         </Modal>
+        <button className="btn-cartlist" onClick={this.toggle}>
+          Add Item
+        </button>
       </div>
     );
   }

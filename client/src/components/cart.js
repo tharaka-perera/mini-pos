@@ -8,6 +8,7 @@ import {
   setCartItemsLoading,
   updateCartItem
 } from "../actions/cartActions";
+import { confirmCart } from "../actions/cartListActions";
 import { getItems } from "../actions/itemActions";
 import ItemModal from "./ItemModal";
 import AppNavBar from "./AppNavBar";
@@ -40,10 +41,22 @@ class Cart extends Component {
     this.props.updateCartItem(newItem);
   };
 
-  confirmCart = () => {};
+  confirmCart(id) {
+    const index = this.props.cartList.carts.findIndex(cart => cart._id === id);
+    console.log(this.props.cartList.carts[index].confirmed);
+
+    const item = this.props.cartList.carts[index].confirmed
+      ? { _id: id, confirmed: false }
+      : { _id: id, confirmed: true };
+    // console.log(item);
+    this.props.confirmCart(item);
+  }
 
   render() {
     const { cartItems, total } = this.props.cart;
+    const index = this.props.cartList.carts.findIndex(
+      cart => cart._id === this.props.cart._id
+    );
     if (!cartItems) {
       return <div />;
     }
@@ -55,7 +68,7 @@ class Cart extends Component {
             <div className="card-header bg-dark text-light">
               <i className="fa fa-shopping-cart" aria-hidden="true" />
               <span> </span>
-              Shopping cart
+              Items in cart
               <div className="clearfix" />
             </div>
             <TransitionGroup className="card-body">
@@ -164,12 +177,27 @@ class Cart extends Component {
             </TransitionGroup>
             <div className="card-footer">
               <div className="float-right col-12" style={{ margin: "10px" }}>
-                <button
-                  className="btn btn-success float-left"
-                  onClick={this.confirmCart}
-                >
-                  Confirm
-                </button>
+                {this.props.cartList.carts[index] ? (
+                  <button
+                    className="btn-cartlist btn-cartlist-confirm"
+                    id={"confirmed" + this.props.cart._id}
+                    onClick={this.confirmCart.bind(this, this.props.cart._id)}
+                  >
+                    {!this.props.cartList.carts[index].confirmed ? (
+                      <i
+                        class="fas fa-circle-notch fa-spin"
+                        style={{ marginRight: "8px" }}
+                      />
+                    ) : (
+                      <i />
+                    )}
+                    {this.props.cartList.carts[index].confirmed
+                      ? "Stop processing"
+                      : "Confirm cart"}
+                  </button>
+                ) : (
+                  <i />
+                )}
                 <div
                   className="float-right"
                   style={{ margin: "5px" }}
@@ -188,11 +216,13 @@ class Cart extends Component {
 
 Cart.propTypes = {
   getCartItems: PropTypes.func.isRequired,
-  cart: PropTypes.object.isRequired
+  cart: PropTypes.object.isRequired,
+  confirmCart: PropTypes.func.isRequired
 };
 
 const mapStateToProps = state => ({
-  cart: state.cart
+  cart: state.cart,
+  cartList: state.cartList
 });
 
 export default connect(
@@ -203,6 +233,7 @@ export default connect(
     addCartItem,
     setCartItemsLoading,
     updateCartItem,
-    getItems
+    getItems,
+    confirmCart
   }
 )(Cart);
