@@ -3,6 +3,7 @@ const router = express.Router();
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 const checkAuth = require("../middleware/check-auth");
+const checkUser = require("../middleware/check-user");
 
 // Cart Model
 
@@ -13,10 +14,16 @@ const User = require("../../models/User");
 router.get("/:id", checkAuth, (req, res) => {
   Cart.findById(req.params.id)
     .populate("items.itm")
-    .then(items => res.json(items));
+    .then(items => res.json(items))
+    .catch(err => {
+      console.log(err);
+      res.status(500).json({
+        error: err
+      });
+    });
 });
 
-router.post("/", (req, res) => {
+router.post("/", checkAuth, (req, res) => {
   if (req.body.hasOwnProperty("delete")) {
     Cart.findById(req.body._id, function(err, cart) {
       if (err) {
@@ -96,7 +103,7 @@ router.post("/", (req, res) => {
   }
 });
 
-router.post("/confirm", (req, res) => {
+router.post("/confirm", checkAuth, (req, res) => {
   Cart.findByIdAndUpdate(
     req.body._id,
     { confirmed: req.body.confirmed },

@@ -1,11 +1,11 @@
 const User = require("../../models/User");
 
 module.exports = (req, res, next) => {
-  let userID = req.params.id || req.body._id;
+  let cartID = req.params.id || req.body._id;
   User.findOne({ email: req.userData.email }).then(user => {
     let allowed = false;
-    for (let i of user.orders) {
-      if (i.cartId == userID) {
+    for (let i of user.carts) {
+      if (i == cartID) {
         allowed = true;
       }
     }

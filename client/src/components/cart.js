@@ -53,12 +53,18 @@ class Cart extends Component {
   }
 
   render() {
-    const { cartItems, total } = this.props.cart;
+    const { cartItems, total, cartLoading } = this.props.cart;
     const index = this.props.cartList.carts.findIndex(
       cart => cart._id === this.props.cart._id
     );
-    if (!cartItems) {
-      return <div />;
+    if (!cartItems || cartLoading) {
+      return (
+        <div class="loader2">
+          <span />
+          <span />
+          <span />
+        </div>
+      );
     }
     return (
       <React.Fragment>
