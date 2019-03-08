@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1552038854745" clover="3.2.0">
-  <project timestamp="1552038854745" name="All files">
-    <metrics statements="53" coveredstatements="53" conditionals="9" coveredconditionals="9" methods="19" coveredmethods="19" elements="81" coveredelements="81" complexity="0" loc="53" ncloc="53" packages="2" files="3" classes="3">
+<coverage generated="1552052677645" clover="3.2.0">
+  <project timestamp="1552052677645" name="All files">
+    <metrics statements="82" coveredstatements="79" conditionals="28" coveredconditionals="27" methods="28" coveredmethods="26" elements="138" coveredelements="132" complexity="0" loc="82" ncloc="82" packages="2" files="6" classes="6">
       <package name="actions">
         <metrics statements="31" coveredstatements="31" conditionals="0" coveredconditionals="0" methods="13" coveredmethods="13"/>
         <file name="cartActions.js" path="/home/nuwanp/mini-pos/client/src/actions/cartActions.js">
@@ -24,26 +24,45 @@
         </file>
         <file name="types.js" path="/home/nuwanp/mini-pos/client/src/actions/types.js">
           <metrics statements="16" coveredstatements="16" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-          <line num="1" count="2" type="stmt"/>
-          <line num="2" count="2" type="stmt"/>
-          <line num="3" count="2" type="stmt"/>
-          <line num="4" count="2" type="stmt"/>
-          <line num="6" count="2" type="stmt"/>
-          <line num="7" count="2" type="stmt"/>
-          <line num="8" count="2" type="stmt"/>
-          <line num="9" count="2" type="stmt"/>
-          <line num="10" count="2" type="stmt"/>
-          <line num="12" count="2" type="stmt"/>
-          <line num="13" count="2" type="stmt"/>
-          <line num="15" count="2" type="stmt"/>
-          <line num="16" count="2" type="stmt"/>
-          <line num="17" count="2" type="stmt"/>
-          <line num="18" count="2" type="stmt"/>
-          <line num="19" count="2" type="stmt"/>
+          <line num="1" count="5" type="stmt"/>
+          <line num="2" count="5" type="stmt"/>
+          <line num="3" count="5" type="stmt"/>
+          <line num="4" count="5" type="stmt"/>
+          <line num="6" count="5" type="stmt"/>
+          <line num="7" count="5" type="stmt"/>
+          <line num="8" count="5" type="stmt"/>
+          <line num="9" count="5" type="stmt"/>
+          <line num="10" count="5" type="stmt"/>
+          <line num="12" count="5" type="stmt"/>
+          <line num="13" count="5" type="stmt"/>
+          <line num="15" count="5" type="stmt"/>
+          <line num="16" count="5" type="stmt"/>
+          <line num="17" count="5" type="stmt"/>
+          <line num="18" count="5" type="stmt"/>
+          <line num="19" count="5" type="stmt"/>
         </file>
       </package>
       <package name="reducers">
-        <metrics statements="22" coveredstatements="22" conditionals="9" coveredconditionals="9" methods="6" coveredmethods="6"/>
+        <metrics statements="51" coveredstatements="48" conditionals="28" coveredconditionals="27" methods="15" coveredmethods="13"/>
+        <file name="cartListReducer.js" path="/home/nuwanp/mini-pos/client/src/reducers/cartListReducer.js">
+          <metrics statements="16" coveredstatements="13" conditionals="9" coveredconditionals="8" methods="6" coveredmethods="4"/>
+          <line num="8" count="1" type="stmt"/>
+          <line num="15" count="6" type="cond" truecount="5" falsecount="1"/>
+          <line num="17" count="2" type="stmt"/>
+          <line num="24" count="0" type="stmt"/>
+          <line num="25" count="0" type="stmt"/>
+          <line num="30" count="0" type="stmt"/>
+          <line num="37" count="1" type="stmt"/>
+          <line num="38" count="1" type="stmt"/>
+          <line num="41" count="3" type="stmt"/>
+          <line num="46" count="1" type="stmt"/>
+          <line num="47" count="3" type="stmt"/>
+          <line num="49" count="1" type="stmt"/>
+          <line num="50" count="1" type="stmt"/>
+          <line num="53" count="3" type="cond" truecount="2" falsecount="0"/>
+          <line num="59" count="1" type="stmt"/>
+          <line num="64" count="1" type="stmt"/>
+        </file>
         <file name="cartReducer.js" path="/home/nuwanp/mini-pos/client/src/reducers/cartReducer.js">
           <metrics statements="22" coveredstatements="22" conditionals="9" coveredconditionals="9" methods="6" coveredmethods="6"/>
           <line num="9" count="1" type="stmt"/>
@@ -68,6 +87,25 @@
           <line num="82" count="1" type="stmt"/>
           <line num="87" count="1" type="stmt"/>
           <line num="92" count="1" type="stmt"/>
+        </file>
+        <file name="itemReducer.js" path="/home/nuwanp/mini-pos/client/src/reducers/itemReducer.js">
+          <metrics statements="8" coveredstatements="8" conditionals="6" coveredconditionals="6" methods="2" coveredmethods="2"/>
+          <line num="8" count="1" type="stmt"/>
+          <line num="14" count="6" type="cond" truecount="5" falsecount="0"/>
+          <line num="16" count="2" type="stmt"/>
+          <line num="22" count="1" type="stmt"/>
+          <line num="24" count="2" type="stmt"/>
+          <line num="27" count="1" type="stmt"/>
+          <line num="32" count="1" type="stmt"/>
+          <line num="37" count="1" type="stmt"/>
+        </file>
+        <file name="loginReducer.js" path="/home/nuwanp/mini-pos/client/src/reducers/loginReducer.js">
+          <metrics statements="5" coveredstatements="5" conditionals="4" coveredconditionals="4" methods="1" coveredmethods="1"/>
+          <line num="4" count="1" type="stmt"/>
+          <line num="9" count="5" type="cond" truecount="3" falsecount="0"/>
+          <line num="11" count="2" type="stmt"/>
+          <line num="16" count="2" type="stmt"/>
+          <line num="21" count="1" type="stmt"/>
         </file>
       </package>
     </metrics>

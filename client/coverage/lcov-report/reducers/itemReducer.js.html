@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <title>Code coverage report for actions/cartActions.js</title>
+    <title>Code coverage report for reducers/itemReducer.js</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="../prettify.css" />
     <link rel="stylesheet" href="../base.css" />
@@ -16,28 +16,28 @@
 <div class='wrapper'>
   <div class='pad1'>
     <h1>
-      <a href="../index.html">All files</a> / <a href="index.html">actions</a> cartActions.js
+      <a href="../index.html">All files</a> / <a href="index.html">reducers</a> itemReducer.js
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>19/19</span>
+        <span class='fraction'>8/8</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
         <span class="quiet">Branches</span>
-        <span class='fraction'>0/0</span>
+        <span class='fraction'>6/6</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
         <span class="quiet">Functions</span>
-        <span class='fraction'>13/13</span>
+        <span class='fraction'>2/2</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>15/15</span>
+        <span class='fraction'>8/8</span>
       </div>
     </div>
   </div>
@@ -82,21 +82,7 @@
 37
 38
 39
-40
-41
-42
-43
-44
-45
-46
-47
-48
-49
-50
-51
-52</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+40</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -104,98 +90,76 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">6x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import axios from "axios";
-import {
-  ADD_CART_ITEM,
-  UPDATE_CART_ITEM,
-  DELETE_CART_ITEM,
-  CART_ITEMS_LOADING,
-  GET_CART
-} from "./types";
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import {
+  GET_ITEMS,
+  ADD_ITEM,
+  DELETE_ITEM,
+  ITEMS_LOADING
+} from '../actions/types'
 &nbsp;
-export const getCartItems = id =&gt; dispatch =&gt; {
-  dispatch(setCartItemsLoading());
-  return axios.get(`/api/cart/${id}`).then(res =&gt; {
-    dispatch({
-      type: GET_CART,
-      payload: res.data
-    });
-  });
-};
+const initialState = {
+  items: [],
+  loading: false
+}
 &nbsp;
-export const deleteCartItem = item =&gt; dispatch =&gt; {
-  return axios.post(`/api/cart/`, item).then(res =&gt;
-    dispatch({
-      type: DELETE_CART_ITEM,
-      payload: { data: res.data, params: item }
-    })
-  );
-};
-&nbsp;
-export const addCartItem = item =&gt; dispatch =&gt; {
-  return axios.post("/api/cart", item).then(res =&gt; {
-    dispatch({
-      type: ADD_CART_ITEM,
-      payload: { response: res.data, itemData: item }
-    });
-  });
-};
-&nbsp;
-export const updateCartItem = item =&gt; dispatch =&gt; {
-  return axios.post("/api/cart", item).then(res =&gt;
-    dispatch({
-      type: UPDATE_CART_ITEM,
-      payload: { data: res.data, params: item }
-    })
-  );
-};
-&nbsp;
-export const setCartItemsLoading = () =&gt; {
-  return {
-    type: CART_ITEMS_LOADING
-  };
-};
+export default function (state = initialState, action) {
+  switch (action.type) {
+    case GET_ITEMS:
+      return {
+        ...state,
+        items: action.payload,
+        loading: false
+      }
+    case DELETE_ITEM:
+      return {
+        ...state,
+        items: state.items.filter(item =&gt; item._id !== action.payload)
+      }
+    case ADD_ITEM:
+      return {
+        ...state,
+        items: [action.payload, ...state.items]
+      }
+    case ITEMS_LOADING:
+      return {
+        ...state,
+        loading: true
+      }
+    default:
+      return state
+  }
+}
 &nbsp;</pre></td></tr>
 </table></pre>
 <div class='push'></div><!-- for sticky footer -->

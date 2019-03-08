@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <title>Code coverage report for actions/types.js</title>
+    <title>Code coverage report for reducers/loginReducer.js</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="../prettify.css" />
     <link rel="stylesheet" href="../base.css" />
@@ -16,28 +16,28 @@
 <div class='wrapper'>
   <div class='pad1'>
     <h1>
-      <a href="../index.html">All files</a> / <a href="index.html">actions</a> types.js
+      <a href="../index.html">All files</a> / <a href="index.html">reducers</a> loginReducer.js
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>16/16</span>
+        <span class='fraction'>5/5</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
         <span class="quiet">Branches</span>
-        <span class='fraction'>0/0</span>
+        <span class='fraction'>4/4</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
         <span class="quiet">Functions</span>
-        <span class='fraction'>0/0</span>
+        <span class='fraction'>1/1</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>16/16</span>
+        <span class='fraction'>5/5</span>
       </div>
     </div>
   </div>
@@ -62,44 +62,56 @@
 17
 18
 19
-20</td><td class="line-coverage quiet"><span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-yes">5x</span>
+20
+21
+22
+23
+24</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-yes">5x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">export const GET_ITEMS = "GET_ITEMS";
-export const ADD_ITEM = "ADD_ITEM";
-export const DELETE_ITEM = "DELETE_ITEM";
-export const ITEMS_LOADING = "ITEMS_LOADING";
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { LOGIN, CHECK } from '../actions/types'
+import { bindActionCreators } from 'redux'
 &nbsp;
-export const GET_CART = "GET_CART";
-export const UPDATE_CART_ITEM = "UPDATE_CART_ITEM";
-export const CART_ITEMS_LOADING = "CART_ITEMS_LOADING";
-export const ADD_CART_ITEM = "ADD_CART_ITEM";
-export const DELETE_CART_ITEM = "DELETE_CART_ITEM";
+const initialState = {
+  message: ''
+}
 &nbsp;
-export const LOGIN = "LOGIN";
-export const CHECK = "CHECK";
-&nbsp;
-export const GET_CART_LIST = "GET_CART_LIST";
-export const CART_LIST_LOADING = "CART_LIST_LOADING";
-export const ADD_CART = "ADD_CART";
-export const REMOVE_CART = "REMOVE_CART";
-export const CONFIRM_CART = "CONFIRM_CART";
+export default function (state = initialState, action) {
+  switch (action.type) {
+    case LOGIN:
+      return {
+        ...state,
+        message: action.payload.success
+      }
+    case CHECK:
+      return {
+        ...state,
+        message: action.payload.message
+      }
+    default:
+      return state
+  }
+}
 &nbsp;</pre></td></tr>
 </table></pre>
 <div class='push'></div><!-- for sticky footer -->
