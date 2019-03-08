@@ -19,6 +19,10 @@ body {
   min-width: 100%;
 }
 
+.browser-outer {
+  min-height: 100vh;
+}
+
 a {
   color: #1dc8cd;
   transition: 0.5s;

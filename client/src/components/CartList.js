@@ -112,7 +112,7 @@ class CartList extends Component {
       );
     }
     return (
-      <React.Fragment>
+      <div className="browser-outer">
         <section id="call-to-action">
           {this.props.login.message && <AppNavBar />}
         </section>
@@ -419,7 +419,7 @@ class CartList extends Component {
         </div> */}
 
         {/* #more-features */}
-      </React.Fragment>
+      </div>
     );
   }
 }

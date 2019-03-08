@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1552030706204" clover="3.2.0">
-  <project timestamp="1552030706204" name="All files">
-    <metrics statements="53" coveredstatements="45" conditionals="9" coveredconditionals="5" methods="19" coveredmethods="17" elements="81" coveredelements="67" complexity="0" loc="53" ncloc="53" packages="2" files="3" classes="3">
+<coverage generated="1552038854745" clover="3.2.0">
+  <project timestamp="1552038854745" name="All files">
+    <metrics statements="53" coveredstatements="53" conditionals="9" coveredconditionals="9" methods="19" coveredmethods="19" elements="81" coveredelements="81" complexity="0" loc="53" ncloc="53" packages="2" files="3" classes="3">
       <package name="actions">
         <metrics statements="31" coveredstatements="31" conditionals="0" coveredconditionals="0" methods="13" coveredmethods="13"/>
         <file name="cartActions.js" path="/home/nuwanp/mini-pos/client/src/actions/cartActions.js">
@@ -43,11 +43,11 @@
         </file>
       </package>
       <package name="reducers">
-        <metrics statements="22" coveredstatements="14" conditionals="9" coveredconditionals="5" methods="6" coveredmethods="4"/>
+        <metrics statements="22" coveredstatements="22" conditionals="9" coveredconditionals="9" methods="6" coveredmethods="6"/>
         <file name="cartReducer.js" path="/home/nuwanp/mini-pos/client/src/reducers/cartReducer.js">
-          <metrics statements="22" coveredstatements="14" conditionals="9" coveredconditionals="5" methods="6" coveredmethods="4"/>
+          <metrics statements="22" coveredstatements="22" conditionals="9" coveredconditionals="9" methods="6" coveredmethods="6"/>
           <line num="9" count="1" type="stmt"/>
-          <line num="17" count="5" type="cond" truecount="4" falsecount="2"/>
+          <line num="17" count="7" type="cond" truecount="6" falsecount="0"/>
           <line num="19" count="2" type="stmt"/>
           <line num="20" count="2" type="stmt"/>
           <line num="21" count="4" type="stmt"/>
@@ -59,14 +59,14 @@
           <line num="39" count="1" type="stmt"/>
           <line num="43" count="1" type="stmt"/>
           <line num="49" count="1" type="stmt"/>
-          <line num="71" count="0" type="stmt"/>
-          <line num="72" count="0" type="stmt"/>
-          <line num="73" count="0" type="cond" truecount="0" falsecount="2"/>
-          <line num="74" count="0" type="stmt"/>
-          <line num="77" count="0" type="stmt"/>
-          <line num="78" count="0" type="stmt"/>
-          <line num="82" count="0" type="stmt"/>
-          <line num="87" count="0" type="stmt"/>
+          <line num="71" count="1" type="stmt"/>
+          <line num="72" count="1" type="stmt"/>
+          <line num="73" count="2" type="cond" truecount="2" falsecount="0"/>
+          <line num="74" count="1" type="stmt"/>
+          <line num="77" count="1" type="stmt"/>
+          <line num="78" count="2" type="stmt"/>
+          <line num="82" count="1" type="stmt"/>
+          <line num="87" count="1" type="stmt"/>
           <line num="92" count="1" type="stmt"/>
         </file>
       </package>

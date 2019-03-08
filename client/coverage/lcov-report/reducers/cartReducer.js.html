@@ -20,28 +20,28 @@
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
-        <span class="strong">63.64% </span>
+        <span class="strong">100% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>14/22</span>
+        <span class='fraction'>22/22</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">55.56% </span>
+        <span class="strong">100% </span>
         <span class="quiet">Branches</span>
-        <span class='fraction'>5/9</span>
+        <span class='fraction'>9/9</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">66.67% </span>
+        <span class="strong">100% </span>
         <span class="quiet">Functions</span>
-        <span class='fraction'>4/6</span>
+        <span class='fraction'>6/6</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">63.64% </span>
+        <span class="strong">100% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>14/22</span>
+        <span class='fraction'>22/22</span>
       </div>
     </div>
   </div>
-  <div class='status-line medium'></div>
+  <div class='status-line high'></div>
 <pre><table class="coverage">
 <tr><td class="line-count quiet">1
 2
@@ -153,7 +153,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">7x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">2x</span>
@@ -207,23 +207,23 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -300,24 +300,24 @@ export default function(state = initialState, action) {
           Number.parseFloat(action.payload.itemData.price).toFixed(2) *
             Number.parseInt(action.payload.itemData.count)
       };
-<span class="branch-3 cbranch-no" title="branch not covered" >    case UPDATE_CART_ITEM:</span>
-      var sum = <span class="cstat-no" title="statement not covered" >0;</span>
-<span class="cstat-no" title="statement not covered" >      state.cartItems.map(<span class="fstat-no" title="function not covered" >ob</span>j =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >        if (obj.itm._id === action.payload.params.itm) {</span>
-<span class="cstat-no" title="statement not covered" >          obj.count = action.payload.params.count;</span>
+    case UPDATE_CART_ITEM:
+      var sum = 0;
+      state.cartItems.map(obj =&gt; {
+        if (obj.itm._id === action.payload.params.itm) {
+          obj.count = action.payload.params.count;
         }
       });
-<span class="cstat-no" title="statement not covered" >      state.cartItems.map(<span class="fstat-no" title="function not covered" >k </span>=&gt; {</span>
-<span class="cstat-no" title="statement not covered" >        sum =</span>
+      state.cartItems.map(k =&gt; {
+        sum =
           Number.parseFloat(k.itm.price).toFixed(2) * Number.parseInt(k.count) +
           sum;
       });
-<span class="cstat-no" title="statement not covered" >      return {</span>
+      return {
         ...state,
         total: sum
       };
-<span class="branch-4 cbranch-no" title="branch not covered" >    case CART_ITEMS_LOADING:</span>
-<span class="cstat-no" title="statement not covered" >      return {</span>
+    case CART_ITEMS_LOADING:
+      return {
         ...state,
         cartLoading: true
       };
@@ -331,7 +331,7 @@ export default function(state = initialState, action) {
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Fri Mar 08 2019 13:08:26 GMT+0530 (+0530)
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Fri Mar 08 2019 15:24:14 GMT+0530 (+0530)
 </div>
 </div>
 <script src="../prettify.js"></script>

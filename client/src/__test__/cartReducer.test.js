@@ -185,4 +185,94 @@ describe("cart reducer", () => {
       }
     );
   });
+
+  it("should handle UPDATE_CART_ITEM", () => {
+    const updateCartItemAction = {
+      type: types.UPDATE_CART_ITEM,
+      payload: {
+        data: "",
+        params: {
+          itm: "2",
+          name: "coke",
+          productCode: "30",
+          price: "10",
+          description: "test",
+          availableCount: 100,
+          count: 5
+        }
+      }
+    };
+
+    expect(
+      reducer(
+        {
+          total: 160,
+          cartItems: [
+            { itm: { _id: "1", price: 50 }, count: 2 },
+            { itm: { _id: "2", price: 20 }, count: 3 }
+          ],
+          cartLoading: false,
+          _id: "12"
+        },
+        updateCartItemAction
+      )
+    ).toEqual(
+      {
+        total: 200,
+        cartItems: [
+          { itm: { _id: "1", price: 50 }, count: 2 },
+          { itm: { _id: "2", price: 20 }, count: 5 }
+        ],
+        cartLoading: false,
+        _id: "12"
+      },
+      {
+        total: 160,
+        cartItems: [
+          { itm: { _id: "1", price: 50 }, count: 2 },
+          { itm: { _id: "2", price: 20 }, count: 3 }
+        ],
+        cartLoading: false,
+        _id: "12"
+      }
+    );
+  });
+
+  it("should handle CART_ITEMS_LOADING", () => {
+    expect(
+      reducer(
+        {
+          total: 160,
+          cartItems: [
+            { itm: { _id: "1", price: 50 }, count: 2 },
+            { itm: { _id: "2", price: 20 }, count: 3 }
+          ],
+          cartLoading: false,
+          _id: "12"
+        },
+        {
+          type: types.CART_ITEMS_LOADING
+        }
+      )
+    ).toEqual(
+      {
+        total: 160,
+        cartItems: [
+          { itm: { _id: "1", price: 50 }, count: 2 },
+          { itm: { _id: "2", price: 20 }, count: 3 }
+        ],
+        cartLoading: true,
+        _id: "12"
+      },
+      {
+        total: 160,
+        cartItems: [
+          { itm: { _id: "1", price: 50 }, count: 2 },
+          { itm: { _id: "2", price: 20 }, count: 3 }
+        ],
+        cartLoading: false,
+        _id: "12"
+      }
+    );
+  });
 });
