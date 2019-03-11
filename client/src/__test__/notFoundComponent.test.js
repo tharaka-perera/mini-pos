@@ -2,43 +2,33 @@ import React from "react";
 import Enzyme, { shallow } from "enzyme";
 import Adapter from "enzyme-adapter-react-16";
 import Header from "../components/NotFound";
+import NotFound from "../components/NotFound";
 
 Enzyme.configure({ adapter: new Adapter() });
 
-// function setup() {
-//   const props = {
-//     addTodo: jest.fn()
-//   };
+it("renders without crashing", () => {
+  shallow(<NotFound />);
+});
 
-//   const enzymeWrapper = shallow(<Header />);
+function setup() {
+  const props = {
+    NotFound: jest.fn()
+  };
 
-//   return {
-//     props,
-//     enzymeWrapper
-//   };
-// }
+  const enzymeWrapper = shallow(<NotFound />);
 
-// describe("components", () => {
-//   describe("Header", () => {
-//     it("should render self and subcomponents", () => {
-//       const { enzymeWrapper } = setup();
+  return {
+    props,
+    enzymeWrapper
+  };
+}
 
-//       expect(enzymeWrapper.find("header").hasClass("header")).toBe(true);
-
-//       expect(enzymeWrapper.find("h1").text()).toBe("todos");
-
-//       const todoInputProps = enzymeWrapper.find("TodoTextInput").props();
-//       expect(todoInputProps.newTodo).toBe(true);
-//       expect(todoInputProps.placeholder).toEqual("What needs to be done?");
-//     });
-
-//     it("should call addTodo if length of text is greater than 0", () => {
-//       const { enzymeWrapper, props } = setup();
-//       const input = enzymeWrapper.find("TodoTextInput");
-//       input.props().onSave("");
-//       expect(props.addTodo.mock.calls.length).toBe(0);
-//       input.props().onSave("Use Redux");
-//       expect(props.addTodo.mock.calls.length).toBe(1);
-//     });
-//   });
-// });
+describe("components", () => {
+  describe("NotFound component", () => {
+    it("should render self and subcomponents", () => {
+      const { enzymeWrapper } = setup();
+      expect(enzymeWrapper.find("div").text()).toBe("Page not found.! ");
+      expect(enzymeWrapper).toMatchSnapshot();
+    });
+  });
+});

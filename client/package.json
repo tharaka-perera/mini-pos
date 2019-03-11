@@ -27,7 +27,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "eject": "react-scripts eject",
-    "test": "jest --coverage --verbose --colors",
+    "test": "react-scripts test --updateSnapshot --coverage --verbose",
     "test:watch": "npm test -- --watch"
   },
   "eslintConfig": {
@@ -53,11 +53,6 @@
     "react-addons-test-utils": "^15.6.2",
     "react-test-renderer": "^16.8.3",
     "redux-mock-store": "^1.5.3"
-  },
-  "jest": {
-    "transform": {
-      "^.+\\.jsx?$": "babel-jest"
-    }
   },
   "babel": {
     "plugins": [

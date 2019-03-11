@@ -73,8 +73,6 @@ class AppNavBar extends Component {
                 Cake Mini-POS
               </a>
             </h1>
-            {/* Uncomment below if you prefer to use an image logo */}
-            {/* <a href="#intro"><img src="img/logo.png" alt="" title=""></a> */}
           </div>
           <nav id="nav-menu-container">
             <ul className="nav-menu">
