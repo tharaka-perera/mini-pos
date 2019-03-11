@@ -1,0 +1,33 @@
+{
+  "name": "POS",
+  "version": "1.0.0",
+  "description": "shopping list built with MERN",
+  "main": "index.js",
+  "scripts": {
+    "client-install": "npm install --prefix ../client",
+    "start": "node server.js",
+    "server": "nodemon server.js",
+    "client": "npm start --prefix ../client",
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix ../client && npm run build --prefix ../client"
+  },
+  "author": "Tharaka",
+  "license": "MIT",
+  "dependencies": {
+    "bcrypt": "^3.0.4",
+    "body-parser": "^1.18.3",
+    "concurrently": "^4.1.0",
+    "cookie-parser": "^1.4.4",
+    "express": "^4.16.4",
+    "i": "^0.3.6",
+    "jsonwebtoken": "^8.5.0",
+    "mongoose": "^5.4.11",
+    "multer": "^1.4.1",
+    "npm": "^6.7.0"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.10",
+    "supertest": "^3.4.2",
+    "supertest-session": "^3.3.0"
+  }
+}
