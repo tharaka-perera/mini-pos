@@ -81,7 +81,11 @@ router.post("/login", (req, res, next) => {
               expiresIn: "1h"
             }
           );
-          return res.cookie("token", token, { httpOnly: true }).sendStatus(200);
+          return res
+            .cookie("token", token, { httpOnly: true })
+            .cookie("user", user[0]._id)
+            .status(200)
+            .json({ userId: user[0]._id });
         }
         res.status(401).json({
           message: "Auth failed"

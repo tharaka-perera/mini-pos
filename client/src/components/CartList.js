@@ -7,7 +7,6 @@ import {
   ModalHeader,
   ModalBody
 } from "reactstrap";
-import { CSSTransition, TransitionGroup } from "react-transition-group";
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import {
@@ -18,12 +17,10 @@ import {
   confirmCart
 } from "../actions/cartListActions";
 import { getCartItems } from "../actions/cartActions";
-import ItemModal from "./ItemModal";
 import AppNavBar from "./AppNavBar";
 import Cart from "./cart";
 
 import PropTypes from "prop-types";
-import { stringify } from "querystring";
 
 class CartList extends Component {
   state = {
@@ -33,8 +30,22 @@ class CartList extends Component {
   };
 
   componentDidMount() {
+    let cookieList = document.cookie ? document.cookie.split("; ") : [];
+    let cookies = [];
+    var usrID = "";
+    cookieList.map(item => {
+      cookies.push(item.split("="));
+    });
+    cookies.map(item => {
+      if (item[0] === "user") {
+        usrID = decodeURIComponent(item[1])
+          .split(":")[1]
+          .match(/"([^"]+)"/)[1];
+      }
+    });
+    // console.log(usrID);
     const item = {
-      userId: "5c77c68f072a5f11776492e8"
+      userId: usrID
     };
     this.props.getCartList(item);
   }
@@ -51,7 +62,7 @@ class CartList extends Component {
   }
 
   removeCart(id) {
-    const item = { _id: "5c77c68f072a5f11776492e8", cart: id };
+    const item = { _id: this.props.cartList.userId, cart: id };
     this.props.removeCart(item);
   }
 
@@ -69,7 +80,7 @@ class CartList extends Component {
   toggle = () => {
     if (this.state.modal) {
       const item = {
-        userId: "5c77c68f072a5f11776492e8"
+        userId: this.props.login.userId
       };
       this.props.getCartList(item);
     }

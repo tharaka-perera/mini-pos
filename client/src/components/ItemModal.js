@@ -25,26 +25,6 @@ class ItemModal extends Component {
     });
   };
 
-  onChange = e => {
-    this.setState({ [e.target.name]: e.target.value });
-  };
-
-  onSubmit = e => {
-    e.preventDefault();
-    const newItem = {
-      name: this.state.name,
-      productCode: this.state.productCode,
-      description: this.state.description,
-      availableCount: this.state.availableCount
-    };
-
-    //add item action
-    this.props.addItem(newItem);
-
-    //close modal
-    this.toggle();
-  };
-
   render() {
     return (
       <div>

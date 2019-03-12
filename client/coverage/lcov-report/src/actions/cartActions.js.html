@@ -20,9 +20,9 @@
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
-        <span class="strong">100% </span>
+        <span class="strong">26.32% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>19/19</span>
+        <span class='fraction'>5/19</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
@@ -30,18 +30,18 @@
         <span class='fraction'>0/0</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">100% </span>
+        <span class="strong">0% </span>
         <span class="quiet">Functions</span>
-        <span class='fraction'>13/13</span>
+        <span class='fraction'>0/13</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">100% </span>
+        <span class="strong">33.33% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>15/15</span>
+        <span class='fraction'>5/15</span>
       </div>
     </div>
   </div>
-  <div class='status-line high'></div>
+  <div class='status-line low'></div>
 <pre><table class="coverage">
 <tr><td class="line-count quiet">1
 2
@@ -104,9 +104,9 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -114,8 +114,8 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -123,8 +123,8 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -132,8 +132,8 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -141,7 +141,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -154,45 +154,45 @@ import {
   GET_CART
 } from "./types";
 &nbsp;
-export const getCartItems = id =&gt; dispatch =&gt; {
-  dispatch(setCartItemsLoading());
-  return axios.get(`/api/cart/${id}`).then(res =&gt; {
-    dispatch({
+export const getCartItems = <span class="fstat-no" title="function not covered" >id</span> =&gt; <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >di</span>spatch =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >  dispatch(setCartItemsLoading());</span>
+<span class="cstat-no" title="statement not covered" >  return axios.get(`/api/cart/${id}`).then(<span class="fstat-no" title="function not covered" >re</span>s =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >    dispatch({</span>
       type: GET_CART,
       payload: res.data
     });
   });
 };
 &nbsp;
-export const deleteCartItem = item =&gt; dispatch =&gt; {
-  return axios.post(`/api/cart/`, item).then(res =&gt;
-    dispatch({
+export const deleteCartItem = <span class="fstat-no" title="function not covered" >it</span>em =&gt; <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >di</span>spatch =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >  return axios.post(`/api/cart/`, item).then(<span class="fstat-no" title="function not covered" >re</span>s =&gt;</span>
+<span class="cstat-no" title="statement not covered" >    dispatch({</span>
       type: DELETE_CART_ITEM,
       payload: { data: res.data, params: item }
     })
   );
 };
 &nbsp;
-export const addCartItem = item =&gt; dispatch =&gt; {
-  return axios.post("/api/cart", item).then(res =&gt; {
-    dispatch({
+export const addCartItem = <span class="fstat-no" title="function not covered" >it</span>em =&gt; <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >di</span>spatch =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >  return axios.post("/api/cart", item).then(<span class="fstat-no" title="function not covered" >re</span>s =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >    dispatch({</span>
       type: ADD_CART_ITEM,
       payload: { response: res.data, itemData: item }
     });
   });
 };
 &nbsp;
-export const updateCartItem = item =&gt; dispatch =&gt; {
-  return axios.post("/api/cart", item).then(res =&gt;
-    dispatch({
+export const updateCartItem = <span class="fstat-no" title="function not covered" >it</span>em =&gt; <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >di</span>spatch =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >  return axios.post("/api/cart", item).then(<span class="fstat-no" title="function not covered" >re</span>s =&gt;</span>
+<span class="cstat-no" title="statement not covered" >    dispatch({</span>
       type: UPDATE_CART_ITEM,
       payload: { data: res.data, params: item }
     })
   );
 };
 &nbsp;
-export const setCartItemsLoading = () =&gt; {
-  return {
+export const setCartItemsLoading = <span class="fstat-no" title="function not covered" >()</span> =&gt; {
+<span class="cstat-no" title="statement not covered" >  return {</span>
     type: CART_ITEMS_LOADING
   };
 };
@@ -202,7 +202,7 @@ export const setCartItemsLoading = () =&gt; {
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Mon Mar 11 2019 16:24:39 GMT+0530 (+0530)
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Tue Mar 12 2019 15:33:27 GMT+0530 (+0530)
 </div>
 </div>
 <script src="../../prettify.js"></script>

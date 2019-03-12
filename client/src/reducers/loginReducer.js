@@ -1,23 +1,25 @@
-import { LOGIN, CHECK } from '../actions/types'
-import { bindActionCreators } from 'redux'
+import { LOGIN, CHECK } from "../actions/types";
+import { bindActionCreators } from "redux";
 
 const initialState = {
-  message: ''
-}
+  message: "",
+  userId: ""
+};
 
-export default function (state = initialState, action) {
+export default function(state = initialState, action) {
   switch (action.type) {
     case LOGIN:
       return {
         ...state,
-        message: action.payload.success
-      }
+        message: action.payload.success,
+        userId: action.payload.data.userId
+      };
     case CHECK:
       return {
         ...state,
         message: action.payload.message
-      }
+      };
     default:
-      return state
+      return state;
   }
 }
