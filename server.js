@@ -2,7 +2,6 @@ const express = require("express");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const path = require("path");
-var cors = require("cors");
 
 const items = require("./routes/api/items");
 const cart = require("./routes/api/carts");
@@ -11,7 +10,6 @@ const user = require("./routes/api/user");
 const cookieParser = require("cookie-parser");
 
 const app = express();
-app.use(cors());
 
 //Middleware
 app.use(bodyParser.json());
