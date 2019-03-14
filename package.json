@@ -1,7 +1,7 @@
 {
   "name": "POS",
   "version": "1.0.0",
-  "description": "shopping list built with MERN",
+  "description": "Cake-mini POS system",
   "main": "index.js",
   "scripts": {
     "client-install": "npm install --prefix client",
@@ -26,6 +26,7 @@
     "npm": "^6.7.0"
   },
   "devDependencies": {
+    "cors": "^2.8.5",
     "nodemon": "^1.18.10",
     "supertest": "^3.4.2",
     "supertest-session": "^3.3.0"

@@ -142,7 +142,7 @@ router.post("/cartlist", checkAuth, (req, res, next) => {
     });
 });
 
-router.post("/addcart", (req, res, next) => {
+router.post("/addcart", checkAuth, (req, res, next) => {
   User.findOne({ _id: req.body.userId })
     .then(user => {
       if (user.length < 1) {
@@ -161,7 +161,7 @@ router.post("/addcart", (req, res, next) => {
     });
 });
 
-router.post("/removecart", (req, res, next) => {
+router.post("/removecart", checkAuth, (req, res, next) => {
   User.findById(req.body._id, function(err, user) {
     if (err) {
       console.log(err);

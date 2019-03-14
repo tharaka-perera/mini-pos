@@ -24,7 +24,7 @@ class Login extends Component {
       password: this.state.password
     };
 
-    this.props.loginUser(auth);
+    this.props.loginUser(auth).catch(() => alert("Invalid credentials.!"));
   };
 
   render() {

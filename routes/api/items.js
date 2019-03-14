@@ -19,10 +19,11 @@ const Item = require("../../models/Item");
 router.get("/", checkAuth, (req, res) => {
   Item.find()
     .sort({ productCode: 1 })
-    .then(items => res.json(items));
+    .then(items => res.json(items))
+    .catch(err => res.status(500).json({ error: err }));
 });
 
-router.post("/", checkAuth, upload.single("itemImage"), (req, res) => {
+router.post("/", upload.single("itemImage"), (req, res) => {
   const newItem = new Item({
     _id: new mongoose.Types.ObjectId(),
     name: req.body.name,
@@ -32,12 +33,20 @@ router.post("/", checkAuth, upload.single("itemImage"), (req, res) => {
     availableCount: req.body.availableCount
   });
 
-  newItem.save().then(item => res.json(item));
+  newItem
+    .save()
+    .then(item => res.json(item))
+    .catch(err => res.status(500).json({ error: err }));
 });
 
-router.delete("/:id", (req, res) => {
+router.delete("/:id", checkAuth, (req, res) => {
   Item.findById(req.params.id)
-    .then(item => item.remove().then(() => res.json({ success: true })))
+    .then(item =>
+      item
+        .remove()
+        .then(() => res.json({ success: true }))
+        .catch(err => res.status(500).json({ error: err }))
+    )
     .catch(err => res.status(404).json({ success: false }));
 });
 

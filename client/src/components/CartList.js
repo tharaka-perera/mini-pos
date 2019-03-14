@@ -163,7 +163,7 @@ class CartList extends Component {
                                 <div className="col-12 col-sm-12 col-md-2 text-center">
                                   <img
                                     className="img-responsive"
-                                    src="https://picsum.photos/120/80"
+                                    src={"/items/" + itm.productCode + "jpg"}
                                     alt={itm.name}
                                     width={120}
                                     height={80}

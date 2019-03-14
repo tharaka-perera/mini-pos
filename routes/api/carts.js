@@ -5,6 +5,8 @@ const Schema = mongoose.Schema;
 const checkAuth = require("../middleware/check-auth");
 const checkUser = require("../middleware/check-user");
 
+// https://app.swaggerhub.com/apis-docs/NuwanTharaka/Cake-mini-POS-documentation/1.0.0
+
 // Cart Model
 
 const Cart = require("../../models/Cart");
@@ -16,8 +18,7 @@ router.get("/:id", checkAuth, (req, res) => {
     .populate("items.itm")
     .then(items => res.json(items))
     .catch(err => {
-      console.log(err);
-      res.status(500).json({
+      res.status(404).json({
         error: err
       });
     });
@@ -85,12 +86,12 @@ router.post("/", checkAuth, (req, res) => {
         User.findOne({ _id: req.body.userId })
           .then(user => {
             if (user.length < 1) {
-              return res.status(401).json({
+              return res.status(404).json({
                 message: "user not found"
               });
             }
             user.carts.push(item._id);
-            user.save().then(res.status(200).json(user));
+            user.save().then(res.status(201).json(user));
           })
           .catch(err => {
             console.log(err);
@@ -110,7 +111,7 @@ router.post("/confirm", checkAuth, (req, res) => {
     function(err, doc) {
       if (err) {
         console.log(err);
-        res.status(500).json({ success: false });
+        res.status(404).json({ success: false });
         return;
       } else {
         res.status(200).json({ success: true });
@@ -120,7 +121,7 @@ router.post("/confirm", checkAuth, (req, res) => {
 });
 
 router.delete("/:id", checkAuth, (req, res) => {
-  Cart.findById(req.params.id)
+  Cart.findById(req.params.id)  
     .then(item => item.remove().then(() => res.json({ success: true })))
     .catch(err => res.status(404).json({ success: false }));
 });

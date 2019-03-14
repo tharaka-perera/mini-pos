@@ -13,7 +13,7 @@ module.exports = (req, res, next) => {
     req.userData = decoded;
     next();
   } catch (error) {
-    return res.status(200).json({
+    return res.status(401).json({
       message: false
     });
   }
