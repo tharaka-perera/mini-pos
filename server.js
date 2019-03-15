@@ -27,11 +27,14 @@ app.use(cookieParser());
 const DB = require("./config/keys").mongoURI;
 
 //connect to DB
-
-mongoose
-  .connect(DB)
-  .then(() => console.log("DB connected"))
-  .catch(err => console.log(err));
+if (process.env.NODE_ENV !== "test") {
+  mongoose
+    .connect(DB)
+    .then(() => console.log("DB connected"))
+    .catch(err => console.log(err));
+} else {
+  console.log("testing");
+}
 
 //Use routes
 app.use("/api/items", items);
