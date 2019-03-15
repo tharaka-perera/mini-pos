@@ -111,7 +111,7 @@ class ShoppingList extends Component {
                       data-key={productCode}
                     >
                       <div className="img-wrap">
-                        <img src={"/items/" + productCode + "jpg"} />
+                        <img src={"/items/" + productCode + ".jpg"} />
                       </div>
                       <figcaption className="info-wrap">
                         <h4 className="title">{name}</h4>
