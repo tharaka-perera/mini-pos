@@ -16,7 +16,9 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 //using static folder to load images
-app.use(express.static("uploads"));
+app.use(
+  express.static(path.join(__dirname, "./uploads"), { maxAge: 86400000 })
+);
 
 //cookie parser
 app.use(cookieParser());
