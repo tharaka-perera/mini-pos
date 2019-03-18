@@ -1,5 +1,6 @@
 const User = require("../../models/User");
 const Cart = require("../../models/Cart");
+const mongoose = require("mongoose");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const jwtKEY = require("../../config/keys").jwtKEY;

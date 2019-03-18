@@ -8,13 +8,17 @@ import { addCartItem } from "../actions/cartActions";
 import PropTypes from "prop-types";
 
 class ShoppingList extends Component {
-  state = {
-    inCart: []
-  };
+  constructor(props) {
+    super(props);
+    this.state = {
+      inCart: []
+    };
+  }
+
   componentDidMount() {
     const { cartItems } = this.props.cart;
     cartItems.map(({ itm }) => {
-      this.state.inCart.push(itm.productCode);
+      this.setState({ inCart: this.state.inCart.concat(itm.productCode) });
       console.log("in cart", itm);
     });
     console.log("cart", this.state.inCart);

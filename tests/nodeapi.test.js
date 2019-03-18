@@ -94,7 +94,7 @@ describe("Cake-Mini-POS", () => {
     });
 
     it("should be able to signup", async () => {
-      request(app)
+      await request(app)
         .post("/api/user/signup")
         .send({ email: "test3@test.com", password: "test2" })
         .expect("Content-Type", /json/)
