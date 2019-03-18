@@ -26,13 +26,14 @@ class CartList extends Component {
   state = {
     edit: false,
     modal: false,
-    currentCartState: false
+    currentCartState: false,
+    userID: ""
   };
 
   componentDidMount() {
     let cookieList = document.cookie ? document.cookie.split("; ") : [];
     let cookies = [];
-    var usrID = "";
+    let usrID = "";
     cookieList.map(item => {
       cookies.push(item.split("="));
     });
@@ -48,6 +49,7 @@ class CartList extends Component {
       userId: usrID
     };
     this.props.getCartList(item);
+    this.setState({ userID: usrID });
   }
 
   editCart(id) {
@@ -80,8 +82,9 @@ class CartList extends Component {
   toggle = () => {
     if (this.state.modal) {
       const item = {
-        userId: this.props.login.userId
+        userId: this.state.userID
       };
+      console.log("printed item", item);
       this.props.getCartList(item);
     }
     this.setState({
@@ -94,9 +97,9 @@ class CartList extends Component {
     const { userId, carts } = this.props.cartList;
     if (this.props.cartList.cartsLoading) {
       return (
-        <div class="container-loader">
+        <div className="container-loader">
           <svg
-            class="loader"
+            className="loader"
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 340 340"
           >
@@ -138,13 +141,13 @@ class CartList extends Component {
             </div>
             <div className="row">
               {carts.map(({ _id, confirmed, items }, index) => (
-                <div className="col-lg-12 collapse-card">
+                <div className="col-lg-12 collapse-card" key={"cart" + _id}>
                   <div className="box wow fadeInLeft collapse-card">
                     <div className="icon">
                       <i className="fas fa-cart-plus fa-3x" />
                     </div>
                     <h4 className="title">
-                      <a href>Cart - {index + 1}</a>
+                      <a>Cart - {index + 1}</a>
                     </h4>
                     <div className="card-btn-wrapper">
                       <button
@@ -158,7 +161,7 @@ class CartList extends Component {
                       <Card>
                         <CardBody>
                           {items.map(({ count, itm }) => (
-                            <div>
+                            <div key={"item" + itm.productCode}>
                               <div className="row">
                                 <div className="col-12 col-sm-12 col-md-2 text-center">
                                   <img
@@ -243,7 +246,7 @@ class CartList extends Component {
                                 >
                                   {!confirmed ? (
                                     <i
-                                      class="fas fa-circle-notch fa-spin"
+                                      className="fas fa-circle-notch fa-spin"
                                       style={{ marginRight: "8px" }}
                                     />
                                   ) : (

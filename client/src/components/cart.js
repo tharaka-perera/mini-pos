@@ -59,7 +59,7 @@ class Cart extends Component {
     );
     if (!cartItems || cartLoading) {
       return (
-        <div class="loader2">
+        <div className="loader2">
           <span />
           <span />
           <span />
@@ -191,7 +191,7 @@ class Cart extends Component {
                   >
                     {!this.props.cartList.carts[index].confirmed ? (
                       <i
-                        class="fas fa-circle-notch fa-spin"
+                        className="fas fa-circle-notch fa-spin"
                         style={{ marginRight: "8px" }}
                       />
                     ) : (

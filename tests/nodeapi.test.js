@@ -34,19 +34,23 @@ app.use("/api/user", user);
 
 const port = process.env.PORT || 5000;
 
-// const server = app.listen(port, () =>
-//   console.log(`Server started on port ${port}`)
-// );
-
 process.env.TEST_SUITE = "cake-mini-pos-api-test";
 process.env.NODE_ENV = "test";
 // const app = require("../server");
 
-describe("Systems", () => {
+describe("CAKE-MINI-POS", () => {
   describe("CREATE", () => {
     afterEach(function(done) {
       mongoose.disconnect();
       return done();
+    });
+
+    let server;
+
+    beforeAll(() => {
+      server = app.listen(port, () =>
+        console.log(`Server started on port ${port}`)
+      );
     });
 
     afterAll(done => {

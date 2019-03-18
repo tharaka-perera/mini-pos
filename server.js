@@ -3,9 +3,9 @@ const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const path = require("path");
 
-const items = require("./routes/api/items");
-const cart = require("./routes/api/carts");
-const user = require("./routes/api/user");
+const items = require("./api/routes/items");
+const cart = require("./api/routes/carts");
+const user = require("./api/routes/user");
 
 const cookieParser = require("cookie-parser");
 
