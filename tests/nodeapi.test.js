@@ -15,9 +15,9 @@ const cookieParser = require("cookie-parser");
 const app = express();
 
 //route imports
-const items = require("../routes/api/items");
-const cart = require("../routes/api/carts");
-const user = require("../routes/api/user");
+const items = require("../api/routes/items");
+const cart = require("../api/routes/carts");
+const user = require("../api/routes/user");
 
 //Middleware
 app.use(bodyParser.json());
@@ -38,8 +38,31 @@ process.env.TEST_SUITE = "cake-mini-pos-api-test";
 process.env.NODE_ENV = "test";
 // const app = require("../server");
 
-describe("CAKE-MINI-POS", () => {
-  describe("CREATE", () => {
+describe("Cake-Mini-POS", () => {
+  describe("User Routes and Controller", () => {
+    beforeEach(function(done) {
+      function clearDB() {
+        for (var i in mongoose.connection.collections) {
+          mongoose.connection.collections[i].remove(function() {});
+        }
+        return done();
+      }
+
+      if (mongoose.connection.readyState === 0) {
+        mongoose.connect(
+          `mongodb://localhost:27017/${process.env.TEST_SUITE}`, // <------- IMPORTANT
+          function(err) {
+            if (err) {
+              throw err;
+            }
+            return clearDB();
+          }
+        );
+      } else {
+        return clearDB();
+      }
+    });
+
     afterEach(function(done) {
       mongoose.disconnect();
       return done();
@@ -58,40 +81,8 @@ describe("CAKE-MINI-POS", () => {
       return done();
     });
 
-    beforeEach(function(done) {
-      /*
-          Define clearDB function that will loop through all 
-          the collections in our mongoose connection and drop them.
-        */
-      function clearDB() {
-        for (var i in mongoose.connection.collections) {
-          mongoose.connection.collections[i].remove(function() {});
-        }
-        return done();
-      }
-
-      /*
-          If the mongoose connection is closed, 
-          start it up using the test url and database name
-          provided by the node runtime ENV
-        */
-      if (mongoose.connection.readyState === 0) {
-        mongoose.connect(
-          `mongodb://localhost:27017/${process.env.TEST_SUITE}`, // <------- IMPORTANT
-          function(err) {
-            if (err) {
-              throw err;
-            }
-            return clearDB();
-          }
-        );
-      } else {
-        return clearDB();
-      }
-    });
-
     let users;
-    test("can create a system", async () => {
+    it("can access database and create a User", async () => {
       await new User({
         _id: new mongoose.Types.ObjectId(),
         email: "test2@test.com",
@@ -101,11 +92,20 @@ describe("CAKE-MINI-POS", () => {
 
       expect(user.email).toEqual("test2@test.com");
     });
-    // test("can create random systems", async () => {
-    //   const fetchedSystems = await System.find({});
 
-    //   expect(fetchedSystems.length).toEqual(50);
-    // });
+    it("should be able to signup", async () => {
+      request(app)
+        .post("/api/user/signup")
+        .send({ email: "test3@test.com", password: "test2" })
+        .expect("Content-Type", /json/)
+        .expect(201)
+        .end(function(err, res) {
+          console.log({
+            response: res.body
+          });
+          if (err) console.log("error", err);
+        });
+    });
   });
   //   describe('READ', () => {
   //     let systems;

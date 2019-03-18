@@ -23,14 +23,8 @@ import Cart from "./cart";
 import PropTypes from "prop-types";
 
 class CartList extends Component {
-  state = {
-    edit: false,
-    modal: false,
-    currentCartState: false,
-    userID: ""
-  };
-
-  componentDidMount() {
+  constructor(props) {
+    super(props);
     let cookieList = document.cookie ? document.cookie.split("; ") : [];
     let cookies = [];
     let usrID = "";
@@ -49,7 +43,12 @@ class CartList extends Component {
       userId: usrID
     };
     this.props.getCartList(item);
-    this.setState({ userID: usrID });
+    this.state = {
+      edit: false,
+      modal: false,
+      currentCartState: false,
+      userID: usrID
+    };
   }
 
   editCart(id) {
