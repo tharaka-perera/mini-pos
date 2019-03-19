@@ -8,32 +8,31 @@ import { addCartItem } from "../actions/cartActions";
 import PropTypes from "prop-types";
 
 class ShoppingList extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      inCart: []
-    };
-  }
+  state = {
+    inCart: []
+  };
 
   componentDidMount() {
     const { cartItems } = this.props.cart;
+    let itemArray = [];
     cartItems.map(({ itm }) => {
-      this.setState({ inCart: this.state.inCart.concat(itm.productCode) });
-      console.log("in cart", itm);
+      itemArray.push(itm.productCode);
     });
-    console.log("cart", this.state.inCart);
-    var ls = document.getElementsByClassName("comp");
+    this.setState({ inCart: itemArray }, () => {
+      // console.log(this.state.inCart);
+      var ls = document.getElementsByClassName("comp");
 
-    for (var i = 0; i < ls.length; i++) {
-      this.state.inCart.map(code => {
-        if (code == ls[i].getAttribute("data-key"))
-          ls[i].classList.add("disabled");
-      });
-      // if (ls[i].getAttribute("data-key") in this.state.inCart) {
-      //   ls[i].classList.add("disabled");
-      //   console.log("key", ls[i].getAttribute("data-key"));
-      // }
-    }
+      for (var i = 0; i < ls.length; i++) {
+        this.state.inCart.map(code => {
+          if (code == ls[i].getAttribute("data-key"))
+            ls[i].classList.add("disabled");
+        });
+        // if (ls[i].getAttribute("data-key") in this.state.inCart) {
+        //   ls[i].classList.add("disabled");
+        //   console.log("key", ls[i].getAttribute("data-key"));
+        // }
+      }
+    });
 
     // console.log(ls);
     // console.log(this.state.inCart);
@@ -73,14 +72,15 @@ class ShoppingList extends Component {
     // add item action
     this.props.addCartItem(newItem);
 
-    this.state.inCart.push(productCode);
-    // console.log(this.state.inCart);
-    var ls = document.getElementsByClassName("comp");
+    this.setState({ inCart: [...this.state.inCart, productCode] }, () => {
+      var ls = document.getElementsByClassName("comp");
 
-    for (var i = 0; i < ls.length; i++) {
-      if (ls[i].getAttribute("data-key") == productCode)
-        ls[i].classList.add("disabled");
-    }
+      for (var i = 0; i < ls.length; i++) {
+        if (ls[i].getAttribute("data-key") == productCode)
+          ls[i].classList.add("disabled");
+      }
+    });
+    // console.log(this.state.inCart);
   };
 
   render() {
