@@ -4,14 +4,14 @@ const checkAuth = require("../middleware/check-auth");
 
 // https://app.swaggerhub.com/apis-docs/NuwanTharaka/Cake-mini-POS-documentation/1.0.0
 
-const Carts_Controller = require("../controllers/carts");
+const CartsController = require("../controllers/carts");
 
-router.get("/:id", checkAuth, Carts_Controller.get_carts);
+router.get("/:id", checkAuth, CartsController.get_carts);
 
-router.post("/", checkAuth, Carts_Controller.edit_carts);
+router.post("/", checkAuth, CartsController.edit_carts);
 
-router.post("/confirm", checkAuth, Carts_Controller.confirm_cart);
+router.post("/confirm", checkAuth, CartsController.confirm_cart);
 
-router.delete("/:id", checkAuth, Carts_Controller.delete_cart);
+router.delete("/:id", checkAuth, CartsController.delete_cart);
 
 module.exports = router;

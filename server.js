@@ -11,43 +11,43 @@ const cookieParser = require("cookie-parser");
 
 const app = express();
 
-//Middleware
+// Middleware
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-//using static folder to load images
+// using static folder to load images
 app.use(
-  express.static(path.join(__dirname, "./uploads"), { maxAge: 86400000 })
+	express.static(path.join(__dirname, "./uploads"), { maxAge: 86400000 })
 );
 
-//cookie parser
+// cookie parser
 app.use(cookieParser());
 
-//DB config
+// DB config
 const DB = require("./config/keys").mongoURI;
 
-//connect to DB
+// connect to DB
 if (process.env.NODE_ENV !== "test") {
-  mongoose
-    .connect(DB)
-    .then(() => console.log("DB connected"))
-    .catch(err => console.log(err));
+	mongoose
+		.connect(DB)
+		.then(() => console.log("DB connected"))
+		.catch(err => console.log(err));
 } else {
-  console.log("testing");
+	console.log("testing");
 }
 
-//Use routes
+// Use routes
 app.use("/api/items", items);
 app.use("/api/cart", cart);
 app.use("/api/user", user);
 
-//serve static asset if in production
+// serve static asset if in production
 if (process.env.NODE_ENV === "production") {
-  //set the static folder
-  app.use(express.static("client/build"));
-  app.get("*", (req, res) => {
-    res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
-  });
+	// set the static folder
+	app.use(express.static("client/build"));
+	app.get("*", (req, res) => {
+		res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
+	});
 }
 
 const port = process.env.PORT || 5000;

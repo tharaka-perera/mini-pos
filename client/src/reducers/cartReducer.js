@@ -3,24 +3,23 @@ import {
   ADD_CART_ITEM,
   UPDATE_CART_ITEM,
   DELETE_CART_ITEM,
-  CART_ITEMS_LOADING
-} from "../actions/types";
+  CART_ITEMS_LOADING,
+} from '../actions/types';
 
 const initialState = {
   cartItems: [],
   total: 0,
   cartLoading: false,
-  _id: ""
+  _id: '',
 };
 
-export default function(state = initialState, action) {
+export default function (state = initialState, action) {
   switch (action.type) {
     case GET_CART:
       var sum = 0;
-      action.payload.items.map(k => {
-        sum =
-          Number.parseFloat(k.itm.price).toFixed(2) * Number.parseInt(k.count) +
-          sum;
+      action.payload.items.map((k) => {
+        sum = Number.parseFloat(k.itm.price).toFixed(2) * Number.parseInt(k.count)
+          + sum;
       });
       // console.log(sum);
       return {
@@ -28,22 +27,21 @@ export default function(state = initialState, action) {
         total: sum,
         cartItems: action.payload.items,
         cartLoading: false,
-        _id: action.payload._id
+        _id: action.payload._id,
       };
     case DELETE_CART_ITEM:
-      var sum = 0;
+      var sum2 = 0;
       var cartTemp = state.cartItems.filter(
-        obj => obj.itm._id !== action.payload.params.itm
+        obj => obj.itm._id !== action.payload.params.itm,
       );
-      cartTemp.map(k => {
-        sum =
-          Number.parseFloat(k.itm.price).toFixed(2) * Number.parseInt(k.count) +
-          sum;
+      cartTemp.map((k) => {
+        sum2 = Number.parseFloat(k.itm.price).toFixed(2) * Number.parseInt(k.count)
+          + sum2;
       });
       return {
         ...state,
         cartItems: cartTemp,
-        total: sum
+        total: sum2,
       };
     case ADD_CART_ITEM:
       return {
@@ -56,37 +54,36 @@ export default function(state = initialState, action) {
               productCode: action.payload.itemData.productCode,
               price: action.payload.itemData.price,
               description: action.payload.itemData.description,
-              availableCount: action.payload.itemData.availableCount
+              availableCount: action.payload.itemData.availableCount,
             },
-            count: action.payload.itemData.count
+            count: action.payload.itemData.count,
           },
-          ...state.cartItems
+          ...state.cartItems,
         ],
         total:
-          state.total +
-          Number.parseFloat(action.payload.itemData.price).toFixed(2) *
-            Number.parseInt(action.payload.itemData.count)
+          state.total
+          + Number.parseFloat(action.payload.itemData.price).toFixed(2)
+          * Number.parseInt(action.payload.itemData.count),
       };
     case UPDATE_CART_ITEM:
-      var sum = 0;
-      state.cartItems.map(obj => {
+      var sum3 = 0;
+      state.cartItems.map((obj) => {
         if (obj.itm._id === action.payload.params.itm) {
           obj.count = action.payload.params.count;
         }
       });
-      state.cartItems.map(k => {
-        sum =
-          Number.parseFloat(k.itm.price).toFixed(2) * Number.parseInt(k.count) +
-          sum;
+      state.cartItems.map((k) => {
+        sum3 = Number.parseFloat(k.itm.price).toFixed(2) * Number.parseInt(k.count)
+          + sum3;
       });
       return {
         ...state,
-        total: sum
+        total: sum3,
       };
     case CART_ITEMS_LOADING:
       return {
         ...state,
-        cartLoading: true
+        cartLoading: true,
       };
     default:
       return state;

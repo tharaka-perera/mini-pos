@@ -1,108 +1,108 @@
-import React, { Component } from "react";
+import React, { Component } from 'react';
 import {
-  Collapse,
-  Navbar,
-  NavbarToggler,
-  Button,
-  NavbarBrand,
-  NavItem,
-  NavLink,
-  Container
-} from "reactstrap";
-import { withRouter } from "react-router-dom";
-import { connect } from "react-redux";
-import PropTypes from "prop-types";
-import { loginUser, authCheck } from "../actions/loginAction";
-import Login from "./Login";
+	Collapse,
+	Navbar,
+	NavbarToggler,
+	Button,
+	NavbarBrand,
+	NavItem,
+	NavLink,
+	Container
+} from 'reactstrap';
+import { withRouter } from 'react-router-dom';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
+import { loginUser, authCheck } from '../actions/loginAction';
+import Login from './Login';
 
 class AppNavBar extends Component {
-  state = {
-    isOpen: false
+  state = { // eslint-disable-line
+  	isOpen: false
   };
 
   componentDidMount() {
-    window.addEventListener("scroll", this.navbarFixed);
+  	window.addEventListener('scroll', this.navbarFixed);
   }
 
   componentWillUnmount() {
-    window.removeEventListener("scroll", this.navbarFixed);
+  	window.removeEventListener('scroll', this.navbarFixed);
   }
 
   logOut = e => {
-    e.preventDefault();
-    fetch("api/user/logout", { method: "POST" }).then(res => {
-      if (res.status === 200) this.props.authCheck();
-    });
+  	e.preventDefault();
+  	fetch('api/user/logout', { method: 'POST' }).then(res => {
+  		if (res.status === 200) this.props.authCheck();
+  	});
   };
 
   navbarFixed = () => {
-    if (
-      document.body.scrollTop > 100 ||
+  	if (
+  		document.body.scrollTop > 100 ||
       document.documentElement.scrollTop > 100
-    ) {
-      document.getElementById("header").classList.add("header-fixed");
-    } else {
-      document.getElementById("header").classList.remove("header-fixed");
-    }
+  	) {
+  		document.getElementById('header').classList.add('header-fixed');
+  	} else {
+  		document.getElementById('header').classList.remove('header-fixed');
+  	}
   };
 
   toggle = () => {
-    this.setState({ isOpen: !this.state.isOpen });
+  	this.setState({ isOpen: !this.state.isOpen });
   };
   render() {
-    return (
-      // <Navbar dark expand="sm" fixed="top">
-      //   <Container>
-      //     <NavbarBrand href="/">Cake Mini-POS</NavbarBrand>
-      //     <NavbarToggler onClick={this.toggle} />
-      //     <Collapse isOpen={this.state.isOpen} navbar>
-      //       <NavItem>
-      //         <Button className="btn btn-success" onClick={this.logOut}>
-      //           Log out
-      //         </Button>
-      //       </NavItem>
-      //     </Collapse>
-      //   </Container>
-      // </Navbar>
+  	return (
+  	// <Navbar dark expand="sm" fixed="top">
+  	//   <Container>
+  	//     <NavbarBrand href="/">Cake Mini-POS</NavbarBrand>
+  	//     <NavbarToggler onClick={this.toggle} />
+  	//     <Collapse isOpen={this.state.isOpen} navbar>
+  	//       <NavItem>
+  	//         <Button className="btn btn-success" onClick={this.logOut}>
+  	//           Log out
+  	//         </Button>
+  	//       </NavItem>
+  	//     </Collapse>
+  	//   </Container>
+  	// </Navbar>
 
       <header id="header">
-        <div className="container">
-          <div id="logo" className="pull-left">
-            <h1>
-              <a href="#intro" className="scrollto">
+      <div className="container">
+      <div id="logo" className="pull-left">
+              <h1>
+  						<a href="#intro" className="scrollto">
                 Cake Mini-POS
-              </a>
-            </h1>
+                  </a>
+  					</h1>
           </div>
-          <nav id="nav-menu-container">
-            <ul className="nav-menu">
-              <li>
-                <button className="logout align-middle" onClick={this.logOut}>
+      <nav id="nav-menu-container">
+      <ul className="nav-menu">
+      <li>
+      <button className="logout align-middle" onClick={ this.logOut }>
                   Log out
-                </button>
-              </li>
-            </ul>
-          </nav>
-          {/* #nav-menu-container */}
-        </div>
-      </header>
-    );
+  							</button>
+  						</li>
+  					</ul>
+  				</nav>
+      {/* #nav-menu-container */}
+  			</div>
+  		</header>
+  	);
   }
 }
 
 Login.propTypes = {
-  loginUser: PropTypes.func.isRequired,
-  authCheck: PropTypes.func.isRequired,
-  login: PropTypes.object.isRequired
+	loginUser: PropTypes.func.isRequired,
+	authCheck: PropTypes.func.isRequired,
+	login: PropTypes.object.isRequired
 };
 
 const mapStateToProps = function(state) {
-  return {
-    login: state.login
-  };
+	return {
+		login: state.login
+	};
 };
 
 export default connect(
-  mapStateToProps,
-  { loginUser, authCheck }
+	mapStateToProps,
+	{ loginUser, authCheck }
 )(AppNavBar);

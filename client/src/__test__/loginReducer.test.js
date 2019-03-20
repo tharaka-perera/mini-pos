@@ -1,80 +1,80 @@
-import reducer from "../reducers/loginReducer";
-import * as types from "../actions/types";
+import reducer from '../reducers/loginReducer';
+import * as types from '../actions/types';
 
-describe("cart reducer", () => {
-  it("should return the initial state", () => {
+describe('cart reducer', () => {
+  it('should return the initial state', () => {
     expect(reducer(undefined, {})).toEqual({
-      message: ""
+      message: '',
     });
   });
 
-  it("should handle LOGIN", () => {
+  it('should handle LOGIN', () => {
     const loginAction = {
       type: types.LOGIN,
       payload: {
-        success: true
-      }
+        success: true,
+      },
     };
     expect(reducer([], loginAction)).toEqual({
-      message: true
+      message: true,
     });
 
     const loginAction2 = {
       type: types.LOGIN,
       payload: {
-        success: false
-      }
+        success: false,
+      },
     };
 
     expect(
       reducer(
         {
-          message: true
+          message: true,
         },
-        loginAction2
-      )
+        loginAction2,
+      ),
     ).toEqual(
       {
-        message: false
+        message: false,
       },
       {
-        message: true
-      }
+        message: true,
+      },
     );
   });
 
-  it("should handle CHECK", () => {
+  it('should handle CHECK', () => {
     const checkAction = {
       type: types.CHECK,
       payload: {
-        message: true
-      }
+        message: true,
+      },
     };
     expect(reducer([], checkAction)).toEqual({
-      message: true
+      message: true,
     });
 
     const checkAction2 = {
       type: types.CHECK,
       payload: {
-        message: false
-      }
+        message: false,
+      },
     };
 
     expect(
       reducer(
         {
-          message: true
+          message: true,
         },
-        checkAction2
-      )
+        checkAction2,
+      ),
     ).toEqual(
       {
-        message: false
+        message: false,
       },
       {
-        message: true
-      }
+        message: true,
+      },
     );
   });
 

@@ -1,46 +1,46 @@
-import reducer from "../reducers/cartReducer";
-import * as types from "../actions/types";
+import reducer from '../reducers/cartReducer';
+import * as types from '../actions/types';
 
-describe("cart reducer", () => {
-  it("should return the initial state", () => {
+describe('cart reducer', () => {
+  it('should return the initial state', () => {
     expect(reducer(undefined, {})).toEqual({
       cartItems: [],
       total: 0,
       cartLoading: false,
-      _id: ""
+      _id: '',
     });
   });
 
-  it("should handle GET_CART", () => {
+  it('should handle GET_CART', () => {
     const getCartAction = {
       type: types.GET_CART,
       payload: {
-        _id: "12",
+        _id: '12',
         items: [
           { itm: { price: 50 }, count: 2 },
-          { itm: { price: 20 }, count: 3 }
-        ]
-      }
+          { itm: { price: 20 }, count: 3 },
+        ],
+      },
     };
     expect(reducer([], getCartAction)).toEqual({
       total: 160,
       cartItems: [
         { itm: { price: 50 }, count: 2 },
-        { itm: { price: 20 }, count: 3 }
+        { itm: { price: 20 }, count: 3 },
       ],
       cartLoading: false,
-      _id: "12"
+      _id: '12',
     });
 
     const getCartAction2 = {
       type: types.GET_CART,
       payload: {
-        _id: "13",
+        _id: '13',
         items: [
           { itm: { price: 50 }, count: 3 },
-          { itm: { price: 20 }, count: 4 }
-        ]
-      }
+          { itm: { price: 20 }, count: 4 },
+        ],
+      },
     };
 
     expect(
@@ -49,46 +49,46 @@ describe("cart reducer", () => {
           total: 160,
           cartItems: [
             { itm: { price: 50 }, count: 2 },
-            { itm: { price: 20 }, count: 3 }
+            { itm: { price: 20 }, count: 3 },
           ],
           cartLoading: false,
-          _id: "12"
+          _id: '12',
         },
-        getCartAction2
-      )
+        getCartAction2,
+      ),
     ).toEqual(
       {
         total: 230,
         cartItems: [
           { itm: { price: 50 }, count: 3 },
-          { itm: { price: 20 }, count: 4 }
+          { itm: { price: 20 }, count: 4 },
         ],
         cartLoading: false,
-        _id: "13"
+        _id: '13',
       },
       {
         total: 160,
         cartItems: [
           { itm: { price: 50 }, count: 2 },
-          { itm: { price: 20 }, count: 3 }
+          { itm: { price: 20 }, count: 3 },
         ],
         cartLoading: false,
-        _id: "12"
-      }
+        _id: '12',
+      },
     );
   });
 
-  it("should handle DELETE_CART_ITEM", () => {
+  it('should handle DELETE_CART_ITEM', () => {
     const deleteCartItemAction = {
       type: types.DELETE_CART_ITEM,
       payload: {
-        data: "",
+        data: '',
         params: {
-          _id: "12",
-          delete: "",
-          itm: "1"
-        }
-      }
+          _id: '12',
+          delete: '',
+          itm: '1',
+        },
+      },
     };
 
     expect(
@@ -96,48 +96,48 @@ describe("cart reducer", () => {
         {
           total: 160,
           cartItems: [
-            { itm: { _id: "1", price: 50 }, count: 2 },
-            { itm: { _id: "2", price: 20 }, count: 3 }
+            { itm: { _id: '1', price: 50 }, count: 2 },
+            { itm: { _id: '2', price: 20 }, count: 3 },
           ],
           cartLoading: false,
-          _id: "12"
+          _id: '12',
         },
-        deleteCartItemAction
-      )
+        deleteCartItemAction,
+      ),
     ).toEqual(
       {
         total: 60,
-        cartItems: [{ itm: { _id: "2", price: 20 }, count: 3 }],
+        cartItems: [{ itm: { _id: '2', price: 20 }, count: 3 }],
         cartLoading: false,
-        _id: "12"
+        _id: '12',
       },
       {
         total: 160,
         cartItems: [
-          { itm: { _id: "1", price: 50 }, count: 2 },
-          { itm: { _id: "2", price: 20 }, count: 3 }
+          { itm: { _id: '1', price: 50 }, count: 2 },
+          { itm: { _id: '2', price: 20 }, count: 3 },
         ],
         cartLoading: false,
-        _id: "12"
-      }
+        _id: '12',
+      },
     );
   });
 
-  it("should handle ADD_CART_ITEM", () => {
+  it('should handle ADD_CART_ITEM', () => {
     const addCartItemAction = {
       type: types.ADD_CART_ITEM,
       payload: {
-        response: "",
+        response: '',
         itemData: {
-          itm: "4",
-          name: "coke",
-          productCode: "30",
-          price: "10",
-          description: "test",
+          itm: '4',
+          name: 'coke',
+          productCode: '30',
+          price: '10',
+          description: 'test',
           availableCount: 100,
-          count: 5
-        }
-      }
+          count: 5,
+        },
+      },
     };
 
     expect(
@@ -145,62 +145,62 @@ describe("cart reducer", () => {
         {
           total: 160,
           cartItems: [
-            { itm: { _id: "1", price: 50 }, count: 2 },
-            { itm: { _id: "2", price: 20 }, count: 3 }
+            { itm: { _id: '1', price: 50 }, count: 2 },
+            { itm: { _id: '2', price: 20 }, count: 3 },
           ],
           cartLoading: false,
-          _id: "12"
+          _id: '12',
         },
-        addCartItemAction
-      )
+        addCartItemAction,
+      ),
     ).toEqual(
       {
         total: 210,
         cartItems: [
           {
             itm: {
-              _id: "4",
-              price: "10",
+              _id: '4',
+              price: '10',
               availableCount: 100,
-              description: "test",
-              name: "coke",
-              productCode: "30"
+              description: 'test',
+              name: 'coke',
+              productCode: '30',
             },
-            count: 5
+            count: 5,
           },
-          { itm: { _id: "1", price: 50 }, count: 2 },
-          { itm: { _id: "2", price: 20 }, count: 3 }
+          { itm: { _id: '1', price: 50 }, count: 2 },
+          { itm: { _id: '2', price: 20 }, count: 3 },
         ],
         cartLoading: false,
-        _id: "12"
+        _id: '12',
       },
       {
         total: 160,
         cartItems: [
-          { itm: { _id: "1", price: 50 }, count: 2 },
-          { itm: { _id: "2", price: 20 }, count: 3 }
+          { itm: { _id: '1', price: 50 }, count: 2 },
+          { itm: { _id: '2', price: 20 }, count: 3 },
         ],
         cartLoading: false,
-        _id: "12"
-      }
+        _id: '12',
+      },
     );
   });
 
-  it("should handle UPDATE_CART_ITEM", () => {
+  it('should handle UPDATE_CART_ITEM', () => {
     const updateCartItemAction = {
       type: types.UPDATE_CART_ITEM,
       payload: {
-        data: "",
+        data: '',
         params: {
-          itm: "2",
-          name: "coke",
-          productCode: "30",
-          price: "10",
-          description: "test",
+          itm: '2',
+          name: 'coke',
+          productCode: '30',
+          price: '10',
+          description: 'test',
           availableCount: 100,
-          count: 5
-        }
-      }
+          count: 5,
+        },
+      },
     };
 
     expect(
@@ -208,71 +208,71 @@ describe("cart reducer", () => {
         {
           total: 160,
           cartItems: [
-            { itm: { _id: "1", price: 50 }, count: 2 },
-            { itm: { _id: "2", price: 20 }, count: 3 }
+            { itm: { _id: '1', price: 50 }, count: 2 },
+            { itm: { _id: '2', price: 20 }, count: 3 },
           ],
           cartLoading: false,
-          _id: "12"
+          _id: '12',
         },
-        updateCartItemAction
-      )
+        updateCartItemAction,
+      ),
     ).toEqual(
       {
         total: 200,
         cartItems: [
-          { itm: { _id: "1", price: 50 }, count: 2 },
-          { itm: { _id: "2", price: 20 }, count: 5 }
+          { itm: { _id: '1', price: 50 }, count: 2 },
+          { itm: { _id: '2', price: 20 }, count: 5 },
         ],
         cartLoading: false,
-        _id: "12"
+        _id: '12',
       },
       {
         total: 160,
         cartItems: [
-          { itm: { _id: "1", price: 50 }, count: 2 },
-          { itm: { _id: "2", price: 20 }, count: 3 }
+          { itm: { _id: '1', price: 50 }, count: 2 },
+          { itm: { _id: '2', price: 20 }, count: 3 },
         ],
         cartLoading: false,
-        _id: "12"
-      }
+        _id: '12',
+      },
     );
   });
 
-  it("should handle CART_ITEMS_LOADING", () => {
+  it('should handle CART_ITEMS_LOADING', () => {
     expect(
       reducer(
         {
           total: 160,
           cartItems: [
-            { itm: { _id: "1", price: 50 }, count: 2 },
-            { itm: { _id: "2", price: 20 }, count: 3 }
+            { itm: { _id: '1', price: 50 }, count: 2 },
+            { itm: { _id: '2', price: 20 }, count: 3 },
           ],
           cartLoading: false,
-          _id: "12"
+          _id: '12',
         },
         {
-          type: types.CART_ITEMS_LOADING
-        }
-      )
+          type: types.CART_ITEMS_LOADING,
+        },
+      ),
     ).toEqual(
       {
         total: 160,
         cartItems: [
-          { itm: { _id: "1", price: 50 }, count: 2 },
-          { itm: { _id: "2", price: 20 }, count: 3 }
+          { itm: { _id: '1', price: 50 }, count: 2 },
+          { itm: { _id: '2', price: 20 }, count: 3 },
         ],
         cartLoading: true,
-        _id: "12"
+        _id: '12',
       },
       {
         total: 160,
         cartItems: [
-          { itm: { _id: "1", price: 50 }, count: 2 },
-          { itm: { _id: "2", price: 20 }, count: 3 }
+          { itm: { _id: '1', price: 50 }, count: 2 },
+          { itm: { _id: '2', price: 20 }, count: 3 },
         ],
         cartLoading: false,
-        _id: "12"
-      }
+        _id: '12',
+      },
     );
   });
 });

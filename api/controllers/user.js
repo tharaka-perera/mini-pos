@@ -47,6 +47,11 @@ exports.user_signup = (req, res, next) => {
           }
         });
       }
+    }).catch(err => {
+      console.log(err);
+      return res.status(500).json({
+        error: err
+      });
     });
 };
 
@@ -101,7 +106,6 @@ exports.user_logout = (req, res, next) => {
 
 exports.user_delete = (req, res, next) => {
   User.remove({ _id: req.params.userId })
-    .exec()
     .then(result => {
       res.status(200).json({
         message: "User deleted"
@@ -121,6 +125,7 @@ exports.get_cartlist = (req, res, next) => {
       path: "carts",
       populate: { path: "items.itm" }
     })
+    .exec()
     .then(user => {
       if (user.length < 1) {
         return res.status(401).json({
@@ -139,6 +144,7 @@ exports.get_cartlist = (req, res, next) => {
 
 exports.add_cart = (req, res, next) => {
   User.findOne({ _id: req.body.userId })
+    .exec()
     .then(user => {
       if (user.length < 1) {
         return res.status(401).json({
@@ -157,35 +163,29 @@ exports.add_cart = (req, res, next) => {
 };
 
 exports.remove_cart = (req, res, next) => {
-  User.findById(req.body._id, function(err, user) {
-    if (err) {
-      console.log(err);
-      res.status(404).json({ success: false });
-      return;
-    } else {
+  User.findById(req.body._id)
+    .exec()
+    .then(() => {
       User.updateOne(
         { _id: req.body._id },
         {
           $pull: {
             carts: req.body.cart
           }
-        },
-        function(err, mod) {
-          if (err) {
-            res.json({ success: false });
-          } else {
-            Cart.findByIdAndDelete(req.body.cart, function(err, cart) {
-              if (err) {
-                console.log(err);
-                res.status(404).json({ success: false });
-                return;
-              } else {
-                res.status(200).json({ success: true });
-              }
-            });
-          }
         }
-      );
-    }
-  });
+      )
+        .then(() => {
+          Cart.findByIdAndDelete(req.body.cart)
+            .then(() => res.status(200).json({ success: true }))
+            .catch(err => {
+              console.log(err);
+              return res.status(404).json({ success: false });
+            });
+        })
+        .catch(err => { return res.json({ success: false }) });
+    })
+    .catch(err => {
+      console.log(err);
+      return res.status(404).json({ success: false });
+    });
 };

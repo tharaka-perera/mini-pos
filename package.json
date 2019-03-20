@@ -9,7 +9,7 @@
     "server": "nodemon server.js",
     "client": "npm start --prefix client",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
-    "test": "jest --coverage --verbose",
+    "test": "jest --no-cache --coverage --verbose",
     "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client"
   },
   "author": "Tharaka",
@@ -28,8 +28,10 @@
   },
   "devDependencies": {
     "cors": "^2.8.5",
+    "eslint": "^5.15.3",
     "jest": "^24.5.0",
     "nodemon": "^1.18.10",
+    "standard": "^12.0.1",
     "supertest": "^3.4.2",
     "supertest-session": "^3.3.0"
   }
