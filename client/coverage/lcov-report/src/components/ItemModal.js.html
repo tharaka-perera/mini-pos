@@ -20,9 +20,9 @@
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
-        <span class="strong">25% </span>
+        <span class="strong">0% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>1/4</span>
+        <span class='fraction'>0/10</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
@@ -32,12 +32,12 @@
       <div class='fl pad1y space-right2'>
         <span class="strong">0% </span>
         <span class="quiet">Functions</span>
-        <span class='fraction'>0/3</span>
+        <span class='fraction'>0/4</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">33.33% </span>
+        <span class="strong">0% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>1/3</span>
+        <span class='fraction'>0/9</span>
       </div>
     </div>
   </div>
@@ -99,7 +99,10 @@
 54
 55
 56
-57</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+57
+58</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -109,12 +112,11 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -147,7 +149,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -155,61 +157,62 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import React, { Component } from "react";
-import {
-  Button,
-  Modal,
-  ModalHeader,
-  ModalBody,
-  Form,
-  FormGroup,
-  Label,
-  Input
-} from "reactstrap";
-import { connect } from "react-redux";
-import { addItem } from "../actions/itemActions";
-import ShoppingList from "./shoppingList";
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">/* istanbul ignore file */
+<span class="cstat-no" title="statement not covered" >import React, { Component } from 'react';</span>
+<span class="cstat-no" title="statement not covered" >import {</span>
+	Button,
+	Modal,
+	ModalHeader,
+	ModalBody,
+	Form,
+	FormGroup,
+	Label,
+	Input
+} from 'reactstrap';
+<span class="cstat-no" title="statement not covered" >import { connect } from 'react-redux';</span>
+<span class="cstat-no" title="statement not covered" >import { addItem } from '../actions/itemActions';</span>
+<span class="cstat-no" title="statement not covered" >import ShoppingList from './shoppingList';</span>
 &nbsp;
-class ItemModal extends Component {
-  state = {
-    modal: false,
-    name: ""
-  };
+class ItemModal extends Component <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >{</span></span>
+	state = {
+		modal: false,
+		name: ''
+	};
 &nbsp;
-  toggle = <span class="fstat-no" title="function not covered" >()</span> =&gt; {
-<span class="cstat-no" title="statement not covered" >    this.setState({</span>
-      modal: !this.state.modal
-    });
-  };
+	toggle = <span class="fstat-no" title="function not covered" >() =&gt; </span>{
+<span class="cstat-no" title="statement not covered" >		this.setState({</span>
+			modal: !this.state.modal
+		});
+	};
 &nbsp;
-<span class="fstat-no" title="function not covered" >  re</span>nder() {
-<span class="cstat-no" title="statement not covered" >    return (</span>
-      &lt;div&gt;
-        &lt;Modal
-          isOpen={this.state.modal}
-          toggle={this.toggle}
-          className="wide-modal"
-        &gt;
-          &lt;ModalHeader toggle={this.toggle}&gt;Add items to cart&lt;/ModalHeader&gt;
-          &lt;ModalBody&gt;
-            &lt;ShoppingList /&gt;
-          &lt;/ModalBody&gt;
-        &lt;/Modal&gt;
-        &lt;button className="btn-cartlist" onClick={this.toggle}&gt;
-          Add Item
-        &lt;/button&gt;
-      &lt;/div&gt;
-    );
-  }
+<span class="fstat-no" title="function not covered" >	render</span>() {
+<span class="cstat-no" title="statement not covered" >		return (</span>
+			&lt;div&gt;
+				&lt;Modal
+					isOpen={this.state.modal}
+					toggle={this.toggle}
+					className="wide-modal"
+				&gt;
+					&lt;ModalHeader toggle={this.toggle}&gt;Add items to cart&lt;/ModalHeader&gt;
+					&lt;ModalBody&gt;
+						&lt;ShoppingList /&gt;
+					&lt;/ModalBody&gt;
+				&lt;/Modal&gt;
+				&lt;button className="btn-cartlist" onClick={this.toggle}&gt;
+					Add Item
+  			&lt;/button&gt;
+			&lt;/div&gt;
+		);
+	}
 }
 &nbsp;
-const mapStateToProps = <span class="fstat-no" title="function not covered" >st</span>ate =&gt; (<span class="cstat-no" title="statement not covered" >{</span>
-  item: state.item
+const mapStateToProps = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >state</span> =&gt; (<span class="cstat-no" title="statement not covered" >{</span></span>
+	item: state.item
 });
 &nbsp;
 export default connect(
-  mapStateToProps,
-  { addItem }
+	mapStateToProps,
+	{ addItem }
 )(ItemModal);
 &nbsp;</pre></td></tr>
 </table></pre>
@@ -217,7 +220,7 @@ export default connect(
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Tue Mar 12 2019 15:33:27 GMT+0530 (+0530)
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Wed Mar 20 2019 23:38:28 GMT+0530 (+0530)
 </div>
 </div>
 <script src="../../prettify.js"></script>

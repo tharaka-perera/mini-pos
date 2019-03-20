@@ -2,21 +2,14 @@ import axios from 'axios';
 import { LOGIN, CHECK } from './types';
 
 export const loginUser = item => dispatch => new Promise(((resolve, reject) => {
-  axios
+  return axios
     .post('/api/user/login', item)
     .then((res) => {
-      if (res.status === 200) {
-        dispatch({
-          type: LOGIN,
-          payload: { data: res.data, success: true },
-        });
-        resolve();
-      } else {
-        dispatch({
-          type: LOGIN,
-          payload: { data: res.data, success: false },
-        });
-      }
+      dispatch({
+        type: LOGIN,
+        payload: { data: res.data, success: true },
+      });
+      resolve();
     })
     .catch(() => {
       reject();
@@ -24,7 +17,7 @@ export const loginUser = item => dispatch => new Promise(((resolve, reject) => {
 }));
 
 export const authCheck = () => (dispatch) => {
-  axios
+  return axios
     .get('/api/user/auth')
     .then((res) => {
       dispatch({

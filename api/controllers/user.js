@@ -18,12 +18,8 @@ exports.user_signup = (req, res, next) => {
           message: "Mail exists"
         });
       } else {
-        bcrypt.hash(req.body.password, 10, (err, hash) => {
-          if (err) {
-            return res.status(500).json({
-              error: err
-            });
-          } else {
+        bcrypt.hash(req.body.password, 10)
+          .then(hash => {
             const user = new User({
               _id: new mongoose.Types.ObjectId(),
               email: req.body.email,
@@ -33,23 +29,22 @@ exports.user_signup = (req, res, next) => {
             user
               .save()
               .then(result => {
-                console.log(result);
+                // console.log(result);
                 res.status(201).json({
                   message: "User created"
                 });
               })
               .catch(err => {
-                console.log(err);
+                // console.log(err);
                 res.status(500).json({
                   error: err
                 });
               });
-          }
-        });
+          });
       }
     }).catch(err => {
-      console.log(err);
-      return res.status(500).json({
+      // console.log(err);
+      res.status(500).json({
         error: err
       });
     });
@@ -64,36 +59,33 @@ exports.user_login = (req, res, next) => {
           message: "Auth failed"
         });
       }
-      bcrypt.compare(req.body.password, user[0].password, (err, result) => {
-        if (err) {
-          return res.status(401).json({
-            message: "Auth failed"
-          });
-        }
-        if (result) {
-          const token = jwt.sign(
-            {
-              email: user[0].email,
-              userId: user[0]._id
-            },
-            jwtKEY,
-            {
-              expiresIn: "1h"
-            }
-          );
-          return res
-            .cookie("token", token, { httpOnly: true })
-            .cookie("user", user[0]._id)
-            .status(200)
-            .json({ userId: user[0]._id });
-        }
-        res.status(401).json({
-          message: "Auth failed"
+      bcrypt.compare(req.body.password, user[0].password)
+        .then(result => {
+          if (result) {
+            const token = jwt.sign(
+              {
+                email: user[0].email,
+                userId: user[0]._id
+              },
+              jwtKEY,
+              {
+                expiresIn: "1h"
+              }
+            );
+            return res
+              .cookie("token", token, { httpOnly: true })
+              .cookie("user", user[0]._id)
+              .status(200)
+              .json({ userId: user[0]._id });
+          } else {
+            res.status(401).json({
+              message: "Auth failed"
+            });
+          }
         });
-      });
     })
     .catch(err => {
-      console.log(err);
+      // console.log(err);
       res.status(500).json({
         error: err
       });
@@ -112,7 +104,7 @@ exports.user_delete = (req, res, next) => {
       });
     })
     .catch(err => {
-      console.log(err);
+      // console.log(err);
       res.status(500).json({
         error: err
       });
@@ -127,21 +119,18 @@ exports.get_cartlist = (req, res, next) => {
     })
     .exec()
     .then(user => {
-      if (user.length < 1) {
-        return res.status(401).json({
-          message: "user not found"
-        });
-      }
       res.json({ _id: user._id, carts: user.carts });
     })
     .catch(err => {
-      console.log("HI", err);
+      // console.log("HI", err);
       res.status(500).json({
         error: err
       });
     });
 };
 
+/* istanbul ignore next */
+//deprecated API
 exports.add_cart = (req, res, next) => {
   User.findOne({ _id: req.body.userId })
     .exec()
@@ -155,7 +144,7 @@ exports.add_cart = (req, res, next) => {
       user.save().then(res.status(200).json({ success: true }));
     })
     .catch(err => {
-      console.log("Add cart", err);
+      // console.log("Add cart", err);
       res.status(500).json({
         error: err
       });
@@ -174,18 +163,21 @@ exports.remove_cart = (req, res, next) => {
           }
         }
       )
+        .exec()
         .then(() => {
+          // console.log(req.body.cart);
           Cart.findByIdAndDelete(req.body.cart)
+            .exec()
             .then(() => res.status(200).json({ success: true }))
             .catch(err => {
-              console.log(err);
+              // console.log(err);
               return res.status(404).json({ success: false });
             });
         })
-        .catch(err => { return res.json({ success: false }) });
+        .catch(err => { return res.status(500).json({ success: false }) });
     })
     .catch(err => {
-      console.log(err);
+      // console.log(err);
       return res.status(404).json({ success: false });
     });
 };

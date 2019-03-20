@@ -1,91 +1,74 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1552995425055" clover="3.2.0">
-  <project timestamp="1552995425055" name="All files">
-    <metrics statements="205" coveredstatements="136" conditionals="40" coveredconditionals="18" methods="59" coveredmethods="25" elements="304" coveredelements="179" complexity="0" loc="205" ncloc="205" packages="5" files="12" classes="12"/>
+<coverage generated="1553107546146" clover="3.2.0">
+  <project timestamp="1553107546146" name="All files">
+    <metrics statements="165" coveredstatements="154" conditionals="16" coveredconditionals="16" methods="63" coveredmethods="53" elements="244" coveredelements="223" complexity="0" loc="165" ncloc="165" packages="5" files="12" classes="12"/>
     <package name="api.controllers">
-      <metrics statements="143" coveredstatements="77" conditionals="36" coveredconditionals="14" methods="55" coveredmethods="23"/>
+      <metrics statements="103" coveredstatements="93" conditionals="12" coveredconditionals="12" methods="59" coveredmethods="49"/>
       <file name="carts.js" path="/home/nuwanp/mini-pos/api/controllers/carts.js">
-        <metrics statements="49" coveredstatements="15" conditionals="16" coveredconditionals="3" methods="18" coveredmethods="3"/>
-        <line num="1" count="1" type="stmt"/>
-        <line num="3" count="1" type="stmt"/>
-        <line num="4" count="1" type="stmt"/>
-        <line num="6" count="1" type="stmt"/>
-        <line num="7" count="0" type="stmt"/>
-        <line num="9" count="0" type="stmt"/>
-        <line num="11" count="0" type="stmt"/>
-        <line num="17" count="1" type="stmt"/>
-        <line num="18" count="1" type="cond" truecount="1" falsecount="1"/>
-        <line num="19" count="0" type="stmt"/>
-        <line num="20" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="21" count="0" type="stmt"/>
-        <line num="22" count="0" type="stmt"/>
-        <line num="23" count="0" type="stmt"/>
-        <line num="25" count="0" type="stmt"/>
-        <line num="33" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="34" count="0" type="stmt"/>
-        <line num="36" count="0" type="stmt"/>
-        <line num="43" count="1" type="cond" truecount="1" falsecount="1"/>
-        <line num="44" count="0" type="stmt"/>
-        <line num="45" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="46" count="0" type="stmt"/>
-        <line num="47" count="0" type="stmt"/>
-        <line num="49" count="0" type="stmt"/>
-        <line num="57" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="58" count="0" type="stmt"/>
-        <line num="59" count="0" type="stmt"/>
-        <line num="60" count="0" type="stmt"/>
-        <line num="62" count="0" type="stmt"/>
-        <line num="69" count="1" type="stmt"/>
-        <line num="75" count="1" type="stmt"/>
-        <line num="76" count="1" type="stmt"/>
-        <line num="78" count="1" type="cond" truecount="1" falsecount="1"/>
-        <line num="79" count="0" type="stmt"/>
-        <line num="83" count="1" type="stmt"/>
-        <line num="84" count="1" type="stmt"/>
-        <line num="87" count="0" type="stmt"/>
-        <line num="88" count="0" type="stmt"/>
-        <line num="97" count="1" type="stmt"/>
-        <line num="98" count="0" type="stmt"/>
-        <line num="102" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="103" count="0" type="stmt"/>
-        <line num="104" count="0" type="stmt"/>
-        <line num="105" count="0" type="stmt"/>
-        <line num="107" count="0" type="stmt"/>
-        <line num="113" count="1" type="stmt"/>
-        <line num="114" count="0" type="stmt"/>
-        <line num="115" count="0" type="stmt"/>
-        <line num="116" count="0" type="stmt"/>
-      </file>
-      <file name="items.js" path="/home/nuwanp/mini-pos/api/controllers/items.js">
-        <metrics statements="25" coveredstatements="16" conditionals="0" coveredconditionals="0" methods="13" coveredmethods="4"/>
+        <metrics statements="38" coveredstatements="35" conditionals="6" coveredconditionals="6" methods="23" coveredmethods="20"/>
         <line num="1" count="1" type="stmt"/>
         <line num="2" count="1" type="stmt"/>
         <line num="3" count="1" type="stmt"/>
-        <line num="4" count="1" type="stmt"/>
         <line num="5" count="1" type="stmt"/>
-        <line num="6" count="1" type="stmt"/>
-        <line num="8" count="0" type="stmt"/>
-        <line num="11" count="0" type="stmt"/>
-        <line num="14" count="1" type="stmt"/>
+        <line num="6" count="2" type="stmt"/>
+        <line num="9" count="1" type="stmt"/>
+        <line num="11" count="1" type="stmt"/>
         <line num="17" count="1" type="stmt"/>
-        <line num="19" count="1" type="stmt"/>
-        <line num="20" count="1" type="stmt"/>
-        <line num="22" count="1" type="stmt"/>
-        <line num="23" count="0" type="stmt"/>
-        <line num="26" count="1" type="stmt"/>
-        <line num="27" count="1" type="stmt"/>
+        <line num="18" count="11" type="cond" truecount="2" falsecount="0"/>
+        <line num="19" count="3" type="stmt"/>
+        <line num="22" count="2" type="stmt"/>
+        <line num="31" count="1" type="stmt"/>
+        <line num="32" count="1" type="stmt"/>
         <line num="36" count="1" type="stmt"/>
-        <line num="38" count="1" type="stmt"/>
-        <line num="39" count="0" type="stmt"/>
+        <line num="39" count="8" type="cond" truecount="2" falsecount="0"/>
+        <line num="40" count="6" type="stmt"/>
+        <line num="43" count="5" type="stmt"/>
+        <line num="53" count="4" type="cond" truecount="2" falsecount="0"/>
+        <line num="54" count="2" type="stmt"/>
+        <line num="55" count="2" type="stmt"/>
+        <line num="56" count="2" type="stmt"/>
+        <line num="58" count="2" type="stmt"/>
+        <line num="61" count="1" type="stmt"/>
+        <line num="62" count="1" type="stmt"/>
+        <line num="64" count="2" type="stmt"/>
+        <line num="70" count="2" type="stmt"/>
+        <line num="71" count="2" type="stmt"/>
+        <line num="74" count="2" type="stmt"/>
+        <line num="75" count="2" type="stmt"/>
+        <line num="79" count="0" type="stmt"/>
+        <line num="88" count="1" type="stmt"/>
+        <line num="89" count="1" type="stmt"/>
+        <line num="94" count="1" type="stmt"/>
+        <line num="97" count="0" type="stmt"/>
+        <line num="101" count="1" type="stmt"/>
+        <line num="102" count="1" type="stmt"/>
+        <line num="104" count="1" type="stmt"/>
+        <line num="105" count="0" type="stmt"/>
+      </file>
+      <file name="items.js" path="/home/nuwanp/mini-pos/api/controllers/items.js">
+        <metrics statements="19" coveredstatements="16" conditionals="0" coveredconditionals="0" methods="11" coveredmethods="8"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="2" count="1" type="stmt"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="7" count="1" type="stmt"/>
+        <line num="9" count="1" type="stmt"/>
+        <line num="10" count="4" type="stmt"/>
+        <line num="13" count="4" type="stmt"/>
+        <line num="14" count="0" type="stmt"/>
+        <line num="17" count="1" type="stmt"/>
+        <line num="18" count="3" type="stmt"/>
+        <line num="27" count="3" type="stmt"/>
+        <line num="29" count="3" type="stmt"/>
+        <line num="30" count="0" type="stmt"/>
+        <line num="33" count="1" type="stmt"/>
+        <line num="34" count="2" type="stmt"/>
+        <line num="37" count="2" type="stmt"/>
+        <line num="39" count="1" type="stmt"/>
+        <line num="40" count="0" type="stmt"/>
         <line num="42" count="1" type="stmt"/>
-        <line num="43" count="0" type="stmt"/>
-        <line num="45" count="0" type="stmt"/>
-        <line num="47" count="0" type="stmt"/>
-        <line num="48" count="0" type="stmt"/>
-        <line num="50" count="0" type="stmt"/>
       </file>
       <file name="user.js" path="/home/nuwanp/mini-pos/api/controllers/user.js">
-        <metrics statements="69" coveredstatements="46" conditionals="20" coveredconditionals="11" methods="24" coveredmethods="16"/>
+        <metrics statements="46" coveredstatements="42" conditionals="6" coveredconditionals="6" methods="25" coveredmethods="21"/>
         <line num="1" count="1" type="stmt"/>
         <line num="2" count="1" type="stmt"/>
         <line num="3" count="1" type="stmt"/>
@@ -95,88 +78,65 @@
         <line num="8" count="1" type="stmt"/>
         <line num="9" count="1" type="stmt"/>
         <line num="12" count="1" type="stmt"/>
-        <line num="13" count="1" type="stmt"/>
-        <line num="16" count="1" type="cond" truecount="1" falsecount="1"/>
-        <line num="17" count="0" type="stmt"/>
+        <line num="13" count="2" type="stmt"/>
+        <line num="16" count="2" type="cond" truecount="2" falsecount="0"/>
+        <line num="17" count="1" type="stmt"/>
         <line num="21" count="1" type="stmt"/>
-        <line num="22" count="1" type="cond" truecount="1" falsecount="1"/>
-        <line num="23" count="0" type="stmt"/>
-        <line num="27" count="1" type="stmt"/>
+        <line num="23" count="1" type="stmt"/>
+        <line num="29" count="1" type="stmt"/>
         <line num="33" count="1" type="stmt"/>
-        <line num="36" count="1" type="stmt"/>
-        <line num="37" count="1" type="stmt"/>
-        <line num="42" count="0" type="stmt"/>
-        <line num="43" count="0" type="stmt"/>
+        <line num="39" count="0" type="stmt"/>
+        <line num="47" count="0" type="stmt"/>
         <line num="53" count="1" type="stmt"/>
-        <line num="54" count="7" type="stmt"/>
-        <line num="57" count="7" type="cond" truecount="1" falsecount="1"/>
-        <line num="58" count="0" type="stmt"/>
-        <line num="62" count="7" type="stmt"/>
-        <line num="63" count="7" type="cond" truecount="1" falsecount="1"/>
-        <line num="64" count="0" type="stmt"/>
-        <line num="68" count="7" type="cond" truecount="1" falsecount="1"/>
-        <line num="69" count="7" type="stmt"/>
-        <line num="79" count="7" type="stmt"/>
-        <line num="85" count="0" type="stmt"/>
-        <line num="91" count="0" type="stmt"/>
-        <line num="92" count="0" type="stmt"/>
-        <line num="98" count="1" type="stmt"/>
+        <line num="54" count="17" type="stmt"/>
+        <line num="57" count="17" type="cond" truecount="2" falsecount="0"/>
+        <line num="58" count="1" type="stmt"/>
+        <line num="62" count="16" type="stmt"/>
+        <line num="64" count="16" type="cond" truecount="2" falsecount="0"/>
+        <line num="65" count="15" type="stmt"/>
+        <line num="75" count="15" type="stmt"/>
+        <line num="81" count="1" type="stmt"/>
+        <line num="89" count="0" type="stmt"/>
+        <line num="95" count="1" type="stmt"/>
+        <line num="96" count="1" type="stmt"/>
         <line num="99" count="1" type="stmt"/>
+        <line num="100" count="2" type="stmt"/>
         <line num="102" count="1" type="stmt"/>
-        <line num="103" count="0" type="stmt"/>
-        <line num="106" count="0" type="stmt"/>
-        <line num="111" count="0" type="stmt"/>
-        <line num="112" count="0" type="stmt"/>
-        <line num="118" count="1" type="stmt"/>
-        <line num="119" count="4" type="stmt"/>
-        <line num="125" count="3" type="cond" truecount="1" falsecount="1"/>
-        <line num="126" count="0" type="stmt"/>
-        <line num="130" count="3" type="stmt"/>
-        <line num="133" count="1" type="stmt"/>
-        <line num="134" count="1" type="stmt"/>
-        <line num="140" count="1" type="stmt"/>
-        <line num="141" count="0" type="stmt"/>
-        <line num="143" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="144" count="0" type="stmt"/>
-        <line num="148" count="0" type="stmt"/>
-        <line num="149" count="0" type="stmt"/>
-        <line num="152" count="0" type="stmt"/>
-        <line num="153" count="0" type="stmt"/>
-        <line num="159" count="1" type="stmt"/>
-        <line num="160" count="4" type="stmt"/>
-        <line num="161" count="4" type="cond" truecount="2" falsecount="0"/>
-        <line num="162" count="1" type="stmt"/>
-        <line num="163" count="1" type="stmt"/>
-        <line num="165" count="3" type="stmt"/>
-        <line num="173" count="3" type="cond" truecount="2" falsecount="0"/>
-        <line num="174" count="2" type="stmt"/>
-        <line num="176" count="1" type="stmt"/>
-        <line num="177" count="1" type="cond" truecount="1" falsecount="1"/>
-        <line num="178" count="0" type="stmt"/>
-        <line num="179" count="0" type="stmt"/>
+        <line num="108" count="1" type="stmt"/>
+        <line num="114" count="1" type="stmt"/>
+        <line num="115" count="10" type="stmt"/>
+        <line num="122" count="9" type="stmt"/>
+        <line num="126" count="1" type="stmt"/>
+        <line num="154" count="1" type="stmt"/>
+        <line num="155" count="3" type="stmt"/>
+        <line num="158" count="2" type="stmt"/>
+        <line num="169" count="1" type="stmt"/>
+        <line num="171" count="1" type="stmt"/>
+        <line num="174" count="0" type="stmt"/>
+        <line num="177" count="1" type="stmt"/>
         <line num="181" count="1" type="stmt"/>
       </file>
     </package>
     <package name="api.middleware">
-      <metrics statements="18" coveredstatements="15" conditionals="4" coveredconditionals="4" methods="4" coveredmethods="2"/>
+      <metrics statements="18" coveredstatements="17" conditionals="4" coveredconditionals="4" methods="4" coveredmethods="4"/>
       <file name="check-auth.js" path="/home/nuwanp/mini-pos/api/middleware/check-auth.js">
         <metrics statements="9" coveredstatements="9" conditionals="4" coveredconditionals="4" methods="1" coveredmethods="1"/>
         <line num="1" count="1" type="stmt"/>
         <line num="2" count="1" type="stmt"/>
         <line num="4" count="1" type="stmt"/>
-        <line num="6" count="14" type="stmt"/>
-        <line num="8" count="14" type="cond" truecount="4" falsecount="0"/>
-        <line num="12" count="13" type="stmt"/>
-        <line num="13" count="13" type="stmt"/>
-        <line num="14" count="13" type="stmt"/>
+        <line num="6" count="43" type="stmt"/>
+        <line num="8" count="43" type="cond" truecount="4" falsecount="0"/>
+        <line num="12" count="42" type="stmt"/>
+        <line num="13" count="42" type="stmt"/>
+        <line num="14" count="42" type="stmt"/>
         <line num="16" count="1" type="stmt"/>
       </file>
       <file name="image_uploader.js" path="/home/nuwanp/mini-pos/api/middleware/image_uploader.js">
-        <metrics statements="9" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="1"/>
+        <metrics statements="9" coveredstatements="8" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="3"/>
         <line num="1" count="1" type="stmt"/>
         <line num="3" count="1" type="stmt"/>
-        <line num="5" count="0" type="stmt"/>
-        <line num="8" count="0" type="stmt"/>
+        <line num="5" count="1" type="stmt"/>
+        <line num="8" count="1" type="stmt"/>
         <line num="11" count="1" type="stmt"/>
         <line num="13" count="1" type="stmt"/>
         <line num="15" count="1" type="stmt"/>

@@ -5,6 +5,7 @@ describe('cart reducer', () => {
   it('should return the initial state', () => {
     expect(reducer(undefined, {})).toEqual({
       message: '',
+      userId: ''
     });
   });
 
@@ -13,16 +14,23 @@ describe('cart reducer', () => {
       type: types.LOGIN,
       payload: {
         success: true,
+        data: {
+          userId: "test"
+        }
       },
     };
     expect(reducer([], loginAction)).toEqual({
       message: true,
+      userId: "test"
     });
 
     const loginAction2 = {
       type: types.LOGIN,
       payload: {
         success: false,
+        data: {
+          userId: "test"
+        }
       },
     };
 
@@ -30,15 +38,18 @@ describe('cart reducer', () => {
       reducer(
         {
           message: true,
+          userId: "test"
         },
         loginAction2,
       ),
     ).toEqual(
       {
         message: false,
+        userId: "test"
       },
       {
         message: true,
+        userId: "test"
       },
     );
   });

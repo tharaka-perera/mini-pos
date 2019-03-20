@@ -20,9 +20,9 @@
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
-        <span class="strong">22.22% </span>
+        <span class="strong">0% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>2/9</span>
+        <span class='fraction'>0/16</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
@@ -32,12 +32,12 @@
       <div class='fl pad1y space-right2'>
         <span class="strong">0% </span>
         <span class="quiet">Functions</span>
-        <span class='fraction'>0/4</span>
+        <span class='fraction'>0/6</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">25% </span>
+        <span class="strong">0% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>2/8</span>
+        <span class='fraction'>0/14</span>
       </div>
     </div>
   </div>
@@ -163,18 +163,20 @@
 118
 119
 120
-121</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+121
+122</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -269,13 +271,13 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -283,125 +285,126 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import React, { Component } from "react";
-import { connect } from "react-redux";
-import { loginUser, authCheck } from "../actions/loginAction";
-import PropTypes from "prop-types";
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">/* istanbul ignore file */
+<span class="cstat-no" title="statement not covered" >import React, { Component } from 'react';</span>
+<span class="cstat-no" title="statement not covered" >import { connect } from 'react-redux';</span>
+<span class="cstat-no" title="statement not covered" >import { loginUser, authCheck } from '../actions/loginAction';</span>
+<span class="cstat-no" title="statement not covered" >import PropTypes from 'prop-types';</span>
 &nbsp;
-class Login extends Component {
-  state = {
-    email: "",
-    password: ""
-  };
+class Login extends Component <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >{</span></span>
+	state = {
+		email: '',
+		password: ''
+	};
 &nbsp;
-  handleInputChange = <span class="fstat-no" title="function not covered" >ev</span>ent =&gt; {
-    const { value, name } = <span class="cstat-no" title="statement not covered" >event.target;</span>
-<span class="cstat-no" title="statement not covered" >    this.setState({</span>
-      [name]: value
-    });
-  };
+	handleInputChange = <span class="fstat-no" title="function not covered" >event</span> =&gt; <span class="cstat-no" title="statement not covered" >{</span>
+		const { value, name } = <span class="cstat-no" title="statement not covered" >event.target;</span>
+<span class="cstat-no" title="statement not covered" >		this.setState({</span>
+			[name]: value
+		});
+	};
 &nbsp;
-  onSubmit = <span class="fstat-no" title="function not covered" >ev</span>ent =&gt; {
-<span class="cstat-no" title="statement not covered" >    event.preventDefault();</span>
-    // console.log(this.state);
-    const auth = <span class="cstat-no" title="statement not covered" >{</span>
-      email: this.state.email,
-      password: this.state.password
-    };
+	onSubmit = <span class="fstat-no" title="function not covered" >event</span> =&gt; {
+<span class="cstat-no" title="statement not covered" >		event.preventDefault();</span>
+		// console.log(this.state);
+		const auth = <span class="cstat-no" title="statement not covered" >{</span>
+			email: this.state.email,
+			password: this.state.password
+		};
 &nbsp;
-<span class="cstat-no" title="statement not covered" >    this.props.loginUser(auth);</span>
-  };
+<span class="cstat-no" title="statement not covered" >		this.props.loginUser(auth).catch(<span class="fstat-no" title="function not covered" >() =&gt; <span class="cstat-no" title="statement not covered" ></span>alert('Invalid credentials.!'));</span></span>
+	};
 &nbsp;
-<span class="fstat-no" title="function not covered" >  re</span>nder() {
-<span class="cstat-no" title="statement not covered" >    return (</span>
-      &lt;React.Fragment&gt;
-        &lt;div className="container login-container"&gt;
-          &lt;div className="row"&gt;
-            &lt;div className="col-md-6 login-form-1"&gt;
-              &lt;h3 className="heading-class"&gt;Login&lt;/h3&gt;
-              &lt;form&gt;
-                &lt;div className="form-group"&gt;
-                  &lt;input
-                    type="text"
-                    name="email"
-                    className="form-control input-email"
-                    placeholder="Your Email *"
-                    onChange={this.handleInputChange}
-                  /&gt;
-                &lt;/div&gt;
-                &lt;div className="form-group"&gt;
-                  &lt;input
-                    type="password"
-                    name="password"
-                    className="form-control"
-                    placeholder="Your Password *"
-                    onChange={this.handleInputChange}
-                  /&gt;
-                &lt;/div&gt;
-                &lt;div className="form-group"&gt;
-                  &lt;input
-                    type="submit"
-                    className="btnSubmit btnLogin"
-                    value="Login"
-                    onClick={this.onSubmit}
-                  /&gt;
-                &lt;/div&gt;
-                {/* &lt;div className="form-group"&gt;
+<span class="fstat-no" title="function not covered" >	render</span>() {
+<span class="cstat-no" title="statement not covered" >		return (</span>
+			&lt;React.Fragment&gt;
+				&lt;div className="container login-container"&gt;
+					&lt;div className="row"&gt;
+						&lt;div className="col-md-6 login-form-1"&gt;
+							&lt;h3 className="heading-class"&gt;Login&lt;/h3&gt;
+							&lt;form&gt;
+								&lt;div className="form-group"&gt;
+									&lt;input
+										type="text"
+										name="email"
+										className="form-control input-email"
+										placeholder="Your Email *"
+										onChange={this.handleInputChange}
+									/&gt;
+								&lt;/div&gt;
+								&lt;div className="form-group"&gt;
+									&lt;input
+										type="password"
+										name="password"
+										className="form-control"
+										placeholder="Your Password *"
+										onChange={this.handleInputChange}
+									/&gt;
+								&lt;/div&gt;
+								&lt;div className="form-group"&gt;
+									&lt;input
+										type="submit"
+										className="btnSubmit btnLogin"
+										value="Login"
+										onClick={this.onSubmit}
+									/&gt;
+								&lt;/div&gt;
+								{/* &lt;div className="form-group"&gt;
                   &lt;a href="#" className="ForgetPwd"&gt;
                     Forget Password?
                   &lt;/a&gt;
                 &lt;/div&gt; */}
-              &lt;/form&gt;
-            &lt;/div&gt;
-            &lt;div className="col-md-6 login-form-2"&gt;
-              &lt;h3&gt;Signup&lt;/h3&gt;
-              &lt;form&gt;
-                &lt;div className="form-group"&gt;
-                  &lt;input
-                    type="text"
-                    className="form-control"
-                    placeholder="Your Email *"
-                  /&gt;
-                &lt;/div&gt;
-                &lt;div className="form-group"&gt;
-                  &lt;input
-                    type="password"
-                    className="form-control"
-                    placeholder="Your Password *"
-                  /&gt;
-                &lt;/div&gt;
-                &lt;div className="form-group"&gt;
-                  &lt;input type="submit" className="btnSubmit" value="Signup" /&gt;
-                &lt;/div&gt;
-                {/* &lt;div className="form-group"&gt;
+							&lt;/form&gt;
+						&lt;/div&gt;
+						&lt;div className="col-md-6 login-form-2"&gt;
+							&lt;h3&gt;Signup&lt;/h3&gt;
+							&lt;form&gt;
+								&lt;div className="form-group"&gt;
+									&lt;input
+										type="text"
+										className="form-control"
+										placeholder="Your Email *"
+									/&gt;
+								&lt;/div&gt;
+								&lt;div className="form-group"&gt;
+									&lt;input
+										type="password"
+										className="form-control"
+										placeholder="Your Password *"
+									/&gt;
+								&lt;/div&gt;
+								&lt;div className="form-group"&gt;
+									&lt;input type="submit" className="btnSubmit" value="Signup" /&gt;
+								&lt;/div&gt;
+								{/* &lt;div className="form-group"&gt;
                   &lt;a href="#" className="ForgetPwd" value="Login"&gt;
                     Forget Password?
                   &lt;/a&gt;
                 &lt;/div&gt; */}
-              &lt;/form&gt;
-            &lt;/div&gt;
-          &lt;/div&gt;
-        &lt;/div&gt;
+							&lt;/form&gt;
+						&lt;/div&gt;
+					&lt;/div&gt;
+				&lt;/div&gt;
 &nbsp;
-        {/* #contact */}
-      &lt;/React.Fragment&gt;
-    );
-  }
+				{/* #contact */}
+			&lt;/React.Fragment&gt;
+		);
+	}
 }
 &nbsp;
-Login.propTypes = {
-  loginUser: PropTypes.func,
-  authCheck: PropTypes.func,
-  login: PropTypes.object
+<span class="cstat-no" title="statement not covered" >Login.propTypes = {</span>
+	loginUser: PropTypes.func,
+	authCheck: PropTypes.func,
+	login: PropTypes.object
 };
 &nbsp;
-const mapStateToProps = <span class="fstat-no" title="function not covered" >st</span>ate =&gt; (<span class="cstat-no" title="statement not covered" >{</span>
-  login: state.login
+const mapStateToProps = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >state</span> =&gt; (<span class="cstat-no" title="statement not covered" >{</span></span>
+	login: state.login
 });
 &nbsp;
 export default connect(
-  mapStateToProps,
-  { loginUser, authCheck }
+	mapStateToProps,
+	{ loginUser, authCheck }
 )(Login);
 &nbsp;</pre></td></tr>
 </table></pre>
@@ -409,7 +412,7 @@ export default connect(
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Tue Mar 12 2019 15:33:27 GMT+0530 (+0530)
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Wed Mar 20 2019 23:38:28 GMT+0530 (+0530)
 </div>
 </div>
 <script src="../../prettify.js"></script>
