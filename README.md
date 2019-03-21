@@ -1,10 +1,16 @@
 # Cake-Mini-POS [![Build Status](https://travis-ci.com/NuwanTharaka/mini-pos.svg?token=E4PARbYNB2S3y8wFTeCr&branch=develop)](https://travis-ci.com/NuwanTharaka/mini-pos)
 
-Mini POint of Sale system for restaurants.
+Mini Point of Sale system for restaurants.
 
 Deployed web applicartion is availble on [cake-mini-pos.herokuapp.com](https://cake-mini-pos.herokuapp.com/)
 
 ## Quick Overview
+
+In dedployed version of the app, signin option is disabled on UI (although it is available with API).<br>
+Use following credentials to login
+
+_Email:`test@test.com`_ 
+_Password:`test`_ 
 
 To run a local version of the web app, clone the repository and run following commands at root of the repository.<br>
 **You’ll need to have Node 8.10.0 or later on your local development machine**
@@ -17,12 +23,14 @@ npm run dev
 
 It will lauch a development version of the app.
 
-### Get Started Immediately
+_`npm init <initializer>`_ 
+
+### Get Started
 
 You need few softwares and packages to launch a functional local **Cake-Mini-POS** application.<br>
 
--[NodeJS](https://nodejs.org/en/download/)
--[MongoDB](https://docs.mongodb.com/manual/installation/)
+- [NodeJS](https://nodejs.org/en/download/)
+- [MongoDB](https://docs.mongodb.com/manual/installation/)
 
 Now you can run a development version of the application and perform tests locally without affecting production databases and servers.
 
@@ -41,7 +49,9 @@ npm run test --prefix client
 ```
 That will cover all the reducers and actions except component UI tests.
 
-### npx
+### Test coverage
+
+Individual coverages for 
 
 ```sh
 npx create-react-app my-app
