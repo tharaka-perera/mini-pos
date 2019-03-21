@@ -11,6 +11,7 @@ before_install:
   - npm config set loglevel warn
 install:
   - npm install
+  - npm install --prefix client
   - npm install codecov
 before_script:
   - sleep 5
