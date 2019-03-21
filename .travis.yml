@@ -1,7 +1,7 @@
 language: node_js
 sudo: true
 node_js:
-  - "node"
+  - 8
 services:
   - mongodb
 cache:
@@ -10,7 +10,7 @@ cache:
 before_install:
   - npm config set loglevel warn
 install:
-  - npm ci
+  - npm install
   - npm install codecov
 before_script:
   - sleep 5
