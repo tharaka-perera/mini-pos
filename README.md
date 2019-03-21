@@ -6,7 +6,8 @@ Deployed web applicartion is availble on [cake-mini-pos.herokuapp.com](https://c
 
 ## Quick Overview
 
-To run a local version of the web app, clone the repository and run following commands at root of the repository.
+To run a local version of the web app, clone the repository and run following commands at root of the repository.<br>
+**You’ll need to have Node 8.10.0 or later on your local development machine**
 
 ```sh
 npm install
@@ -18,16 +19,27 @@ It will lauch a development version of the app.
 
 ### Get Started Immediately
 
-You **don’t** need to install or configure tools like Webpack or Babel.<br>
-They are preconfigured and hidden so that you can focus on the code.
+You need few softwares and packages to launch a functional local **Cake-Mini-POS** application.<br>
 
-Just create a project, and you’re good to go.
+-[NodeJS](https://nodejs.org/en/download/)
+-[MongoDB](https://docs.mongodb.com/manual/installation/)
 
-## Creating an App
+Now you can run a development version of the application and perform tests locally without affecting production databases and servers.
 
-**You’ll need to have Node 8.10.0 or later on your local development machine** (but it’s not required on the server). You can use [nvm](https://github.com/creationix/nvm#installation) (macOS/Linux) or [nvm-windows](https://github.com/coreybutler/nvm-windows#node-version-manager-nvm-for-windows) to easily switch Node versions between different projects.
+## Run tests
 
-To create a new app, you may choose one of the following methods:
+Backend and frontend both are covered with unit and integration tests to ensure the fuctionality of the application.<br>
+To test **Backend API** at root folder run
+
+```sh
+npm run test
+```
+To perform frontend tests run ( assuming that you are at root folder )
+
+```sh
+npm run test --prefix client
+```
+That will cover all the reducers and actions except component UI tests.
 
 ### npx
 
