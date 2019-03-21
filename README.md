@@ -1,4 +1,4 @@
-# Cake-Mini-POS [![Build Status](https://travis-ci.org/facebook/create-react-app.svg?branch=master)](https://travis-ci.org/facebook/create-react-app) [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-green.svg)](https://github.com/facebook/create-react-app/pulls)
+# Cake-Mini-POS [![Build Status](https://travis-ci.com/NuwanTharaka/mini-pos.svg?token=E4PARbYNB2S3y8wFTeCr&branch=develop)](https://travis-ci.com/NuwanTharaka/mini-pos)
 
 Mini POint of Sale system for restaurants.
 
@@ -6,20 +6,15 @@ Deployed web applicartion is availble on [cake-mini-pos.herokuapp.com](https://c
 
 ## Quick Overview
 
+To run a local version of the web app, clone the repository and run following commands at root of the repository.
+
 ```sh
-npx create-react-app my-app
-cd my-app
-npm start
+npm install
+npm install --prefix client
+npm run dev
 ```
 
-_([npx](https://medium.com/@maybekatz/introducing-npx-an-npm-package-runner-55f7d4bd282b) comes with npm 5.2+ and higher, see [instructions for older npm versions](https://gist.github.com/gaearon/4064d3c23a77c74a3614c498a8bb1c5f))_
-
-Then open [http://localhost:3000/](http://localhost:3000/) to see your app.<br>
-When you’re ready to deploy to production, create a minified bundle with `npm run build`.
-
-<p align='center'>
-<img src='https://cdn.rawgit.com/facebook/create-react-app/27b42ac/screencast.svg' width='600' alt='npm start'>
-</p>
+It will lauch a development version of the app.
 
 ### Get Started Immediately
 
