@@ -8,10 +8,10 @@ const ItemsController = require("../controllers/items");
 router.get("/", checkAuth, ItemsController.get_items);
 
 router.post(
-	"/",
-	checkAuth,
-	UploadMiddleware.imageUploader(),
-	ItemsController.add_item
+  "/",
+  checkAuth,
+  UploadMiddleware.imageUploader(),
+  ItemsController.add_item
 );
 
 router.delete("/:id", checkAuth, ItemsController.delete_item);

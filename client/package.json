@@ -29,6 +29,7 @@
     "build": "react-scripts build",
     "eject": "react-scripts eject",
     "test": "react-scripts test --updateSnapshot --coverage --verbose",
+    "lint": "./node_modules/.bin/eslint ./src",
     "test:watch": "npm test -- --watch"
   },
   "jest": {
@@ -61,11 +62,13 @@
     "eslint-loader": "^2.1.2",
     "eslint-plugin-import": "^2.16.0",
     "eslint-plugin-jsx-a11y": "^6.2.1",
+    "eslint-plugin-prettier": "^3.0.1",
     "eslint-plugin-react": "^7.12.4",
     "expect": "^24.1.0",
     "fetch-mock": "^7.3.0",
     "moxios": "^0.4.0",
     "node-fetch": "^2.3.0",
+    "prettier": "^1.16.4",
     "react-addons-test-utils": "^15.6.2",
     "react-test-renderer": "^16.8.3",
     "redux-devtools-extension": "^2.13.8",
