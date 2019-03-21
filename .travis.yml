@@ -21,6 +21,3 @@ jobs:
       script:
         - npm test
         - npm test --prefix client
-    - stage: Deployment
-      script:
-        - npm install --prefix client && npm run build --prefix client
