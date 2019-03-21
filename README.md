@@ -1,12 +1,8 @@
 # Cake-Mini-POS [![Build Status](https://travis-ci.org/facebook/create-react-app.svg?branch=master)](https://travis-ci.org/facebook/create-react-app) [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-green.svg)](https://github.com/facebook/create-react-app/pulls)
 
-Create React apps with no build configuration.
+Mini POint of Sale system for restaurants.
 
-- [Creating an App](#creating-an-app) – How to create a new app.
-- [User Guide](https://facebook.github.io/create-react-app/) – How to develop apps bootstrapped with Create React App.
-
-Create React App works on macOS, Windows, and Linux.<br>
-If something doesn’t work, please [file an issue](https://github.com/facebook/create-react-app/issues/new).
+Deployed web applicartion is availble on [cake-mini-pos.herokuapp.com](https://cake-mini-pos.herokuapp.com/)
 
 ## Quick Overview
 

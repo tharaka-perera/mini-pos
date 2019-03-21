@@ -1,4 +1,32 @@
 language: node_js
+sudo: true
 node_js:
   - 8
-  - node
+  - "node"
+services:
+  - mongodb
+cache:
+  directories:
+    - "$HOME/.npm"
+env:
+  global:
+    - DATABASE_URL=mongodb://localhost:27017/posdb
+    - CODACY_ACCOUNT_TOKEN=$CODACY_PROJECT_TOKEN
+    - CODECOV_TOKEN="63753f62-b3a7-417e-bfd4-a19f249d75c2"
+before_install:
+  - npm config set loglevel warn
+install:
+  - npm ci
+  - npm install codecov
+before_script:
+  - sleep 5
+  - mongo posdb --eval 'db.createUser({user:"travis",pwd:"test",roles:["readWrite"]});'
+jobs:
+  include:
+    - stage: Unit and Integration tests
+      script:
+        - npm test
+        - npm test --prefix client
+    - stage: Deployment
+      script:
+        - npm install --prefix client && npm run build --prefix client
