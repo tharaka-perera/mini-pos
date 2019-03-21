@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 import {
 	Button,
 	Modal,
@@ -8,15 +8,15 @@ import {
 	FormGroup,
 	Label,
 	Input
-} from 'reactstrap';
-import { connect } from 'react-redux';
-import { addItem } from '../actions/itemActions';
-import ShoppingList from './shoppingList';
+} from "reactstrap";
+import { connect } from "react-redux";
+import { addItem } from "../actions/itemActions";
+import ShoppingList from "./shoppingList";
 
 class ItemModal extends Component {
 	state = {
 		modal: false,
-		name: ''
+		name: ""
 	};
 
 	toggle = () => {

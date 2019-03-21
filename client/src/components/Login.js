@@ -1,12 +1,12 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { loginUser, authCheck } from '../actions/loginAction';
-import PropTypes from 'prop-types';
+import React, { Component } from "react";
+import { connect } from "react-redux";
+import { loginUser, authCheck } from "../actions/loginAction";
+import PropTypes from "prop-types";
 
 class Login extends Component {
 	state = {
-		email: '',
-		password: ''
+		email: "",
+		password: ""
 	};
 
 	handleInputChange = event => {
@@ -24,7 +24,7 @@ class Login extends Component {
 			password: this.state.password
 		};
 
-		this.props.loginUser(auth).catch(() => alert('Invalid credentials.!'));
+		this.props.loginUser(auth).catch(() => alert("Invalid credentials.!"));
 	};
 
 	render() {

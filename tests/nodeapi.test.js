@@ -33,7 +33,7 @@ app.use('/api/items', items)
 app.use('/api/cart', cart)
 app.use('/api/user', user)
 
-const port = process.env.PORT || 5000
+const port = process.env.PORT || 5010
 
 // environmet variable setting
 process.env.TEST_SUITE = 'cake-mini-pos-api-test'
@@ -55,7 +55,7 @@ describe('Cake-Mini-POS', () => {
 
       if (mongoose.connection.readyState === 0) {
         mongoose.connect(
-          `mongodb://localhost:27017/${process.env.TEST_SUITE}`, // <------- IMPORTANT
+          `mongodb://localhost:27017/${process.env.TEST_SUITE}`,
           function (err) {
             if (err) {
               throw err

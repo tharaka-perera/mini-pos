@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1553107101206" clover="3.2.0">
-  <project timestamp="1553107101206" name="All files">
+<coverage generated="1553144056934" clover="3.2.0">
+  <project timestamp="1553144056934" name="All files">
     <metrics statements="105" coveredstatements="101" conditionals="28" coveredconditionals="27" methods="60" coveredmethods="57" elements="193" coveredelements="185" complexity="0" loc="105" ncloc="105" packages="2" files="9" classes="9">
       <package name="actions">
         <metrics statements="56" coveredstatements="55" conditionals="0" coveredconditionals="0" methods="45" coveredmethods="44"/>
@@ -83,17 +83,17 @@
           <line num="9" count="1" type="stmt"/>
           <line num="16" count="6" type="cond" truecount="5" falsecount="1"/>
           <line num="18" count="2" type="stmt"/>
-          <line num="25" count="0" type="stmt"/>
           <line num="26" count="0" type="stmt"/>
-          <line num="31" count="0" type="stmt"/>
-          <line num="39" count="1" type="stmt"/>
-          <line num="42" count="3" type="stmt"/>
-          <line num="47" count="1" type="stmt"/>
-          <line num="48" count="3" type="stmt"/>
-          <line num="51" count="1" type="stmt"/>
-          <line num="53" count="3" type="cond" truecount="2" falsecount="0"/>
-          <line num="58" count="1" type="stmt"/>
-          <line num="63" count="1" type="stmt"/>
+          <line num="27" count="0" type="stmt"/>
+          <line num="32" count="0" type="stmt"/>
+          <line num="41" count="1" type="stmt"/>
+          <line num="44" count="3" type="stmt"/>
+          <line num="50" count="1" type="stmt"/>
+          <line num="51" count="3" type="stmt"/>
+          <line num="54" count="1" type="stmt"/>
+          <line num="56" count="3" type="cond" truecount="2" falsecount="0"/>
+          <line num="62" count="1" type="stmt"/>
+          <line num="68" count="1" type="stmt"/>
         </file>
         <file name="cartReducer.js" path="/home/nuwanp/mini-pos/client/src/reducers/cartReducer.js">
           <metrics statements="22" coveredstatements="22" conditionals="9" coveredconditionals="9" methods="6" coveredmethods="6"/>
@@ -133,11 +133,11 @@
         </file>
         <file name="loginReducer.js" path="/home/nuwanp/mini-pos/client/src/reducers/loginReducer.js">
           <metrics statements="5" coveredstatements="5" conditionals="4" coveredconditionals="4" methods="1" coveredmethods="1"/>
-          <line num="4" count="1" type="stmt"/>
-          <line num="10" count="5" type="cond" truecount="3" falsecount="0"/>
-          <line num="12" count="2" type="stmt"/>
-          <line num="18" count="2" type="stmt"/>
-          <line num="23" count="1" type="stmt"/>
+          <line num="3" count="1" type="stmt"/>
+          <line num="9" count="5" type="cond" truecount="3" falsecount="0"/>
+          <line num="11" count="2" type="stmt"/>
+          <line num="17" count="2" type="stmt"/>
+          <line num="22" count="1" type="stmt"/>
         </file>
       </package>
     </metrics>

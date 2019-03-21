@@ -1,19 +1,19 @@
-import { CSSTransition, TransitionGroup } from 'react-transition-group';
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
+import { CSSTransition, TransitionGroup } from "react-transition-group";
+import React, { Component } from "react";
+import { connect } from "react-redux";
 import {
 	getCartItems,
 	deleteCartItem,
 	addCartItem,
 	setCartItemsLoading,
 	updateCartItem
-} from '../actions/cartActions';
-import { confirmCart } from '../actions/cartListActions';
-import { getItems } from '../actions/itemActions';
-import ItemModal from './ItemModal';
-import AppNavBar from './AppNavBar';
+} from "../actions/cartActions";
+import { confirmCart } from "../actions/cartListActions";
+import { getItems } from "../actions/itemActions";
+import ItemModal from "./ItemModal";
+import AppNavBar from "./AppNavBar";
 
-import PropTypes from 'prop-types';
+import PropTypes from "prop-types";
 
 class Cart extends Component {
 	componentDidMount() {
@@ -24,7 +24,7 @@ class Cart extends Component {
 	onDeleteClick = id => {
 		const newItem = {
 			_id: this.props.cart._id,
-			delete: '',
+			delete: "",
 			itm: id
 		};
 		this.props.deleteCartItem(newItem);
@@ -86,7 +86,7 @@ class Cart extends Component {
 											<div className="col-12 col-sm-12 col-md-2 text-center">
 												<img
 													className="img-responsive"
-													src={'/items/' + itm.productCode + '.jpg'}
+													src={"/items/" + itm.productCode + ".jpg"}
 													alt={itm.name}
 													width={120}
 													height={80}
@@ -109,7 +109,7 @@ class Cart extends Component {
 											<div className="col-12 col-sm-12 text-sm-center col-md-4 text-md-right row">
 												<div
 													className="col-3 col-sm-3 col-md-6 text-md-right"
-													style={{ paddingTop: '5px' }}
+													style={{ paddingTop: "5px" }}
 												>
 													<h6>
 														<strong>
@@ -182,31 +182,31 @@ class Cart extends Component {
 							))}
 						</TransitionGroup>
 						<div className="card-footer">
-							<div className="float-right col-12" style={{ margin: '10px' }}>
+							<div className="float-right col-12" style={{ margin: "10px" }}>
 								{this.props.cartList.carts[index] ? (
 									<button
 										className="btn-cartlist btn-cartlist-confirm"
-										id={'confirmed' + this.props.cart._id}
+										id={"confirmed" + this.props.cart._id}
 										onClick={this.confirmCart.bind(this, this.props.cart._id)}
 									>
 										{!this.props.cartList.carts[index].confirmed ? (
 											<i
 												className="fas fa-circle-notch fa-spin"
-												style={{ marginRight: '8px' }}
+												style={{ marginRight: "8px" }}
 											/>
 										) : (
-												<i />
-											)}
+											<i />
+										)}
 										{this.props.cartList.carts[index].confirmed
-											? 'Stop processing'
-											: 'Confirm cart'}
+											? "Stop processing"
+											: "Confirm cart"}
 									</button>
 								) : (
-										<i />
-									)}
+									<i />
+								)}
 								<div
 									className="float-right"
-									style={{ margin: '5px' }}
+									style={{ margin: "5px" }}
 									id="total-price"
 								>
 									Total price: <b>${Number.parseFloat(total).toFixed(2)}</b>

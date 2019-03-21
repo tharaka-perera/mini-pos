@@ -20,9 +20,9 @@
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
-        <span class="strong">90.24% </span>
+        <span class="strong">92.5% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>37/41</span>
+        <span class='fraction'>37/40</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
@@ -263,106 +263,106 @@ const Cart = require("../../models/Cart");
 const User = require("../../models/User");
 &nbsp;
 exports.get_carts = (req, res) =&gt; {
-  Cart.findById(req.params.id)
-    .populate("items.itm")
-    .exec()
-    .then(items =&gt; res.json(items))
-    .catch(err =&gt; {
-      res.status(404).json({
-        error: err
-      });
-    });
+	Cart.findById(req.params.id)
+		.populate("items.itm")
+		.exec()
+		.then(items =&gt; res.json(items))
+		.catch(err =&gt; {
+			res.status(404).json({
+				error: err
+			});
+		});
 };
 &nbsp;
 exports.edit_carts = (req, res) =&gt; {
-  if (req.body.hasOwnProperty("delete")) {
-    Cart.findById(req.body._id)
-      .exec()
-      .then(() =&gt; {
-        Cart.updateOne(
-          { _id: req.body._id, "items.itm": req.body.itm },
-          {
-            $pull: {
-              items: { itm: req.body.itm }
-            }
-          }
-        )
-          .exec()
-          .then(mod =&gt; res.json(mod))
-          .catch(err =&gt; res.status(500).json({ success: false }));
-      })
-      .catch(err =&gt; {
-        /*console.log(err);*/
-        res.status(404).json({ success: false });
-      });
-  } else {
-    if (req.body.hasOwnProperty("_id")) {
-      Cart.findById(req.body._id)
-        .exec()
-        .then((cart) =&gt; {
-          Cart.updateOne(
-            { _id: req.body._id, "items.itm": req.body.itm },
-            {
-              $set: {
-                "items.$.count": req.body.count
-              }
-            }
-          )
-            .exec()
-            .then(mod =&gt; {
-              if (mod.n === 0) {
-                let pushItm = { itm: req.body.itm, count: req.body.count };
-                cart.items.push(pushItm);
-                cart.save().then(item =&gt; res.json(item));
-              } else {
-                res.json(mod);
-              }
-            })
-            .catch(err =&gt; res.status(500).json({ success: false }))
-        }).catch(err =&gt; res.status(404).json({ success: false }))
-    } else {
-      const newCart = new Cart({
-        _id: new mongoose.Types.ObjectId(),
-        confirmed: false,
-        items: []
-      });
+	if (req.body.hasOwnProperty("delete")) {
+		Cart.findById(req.body._id)
+			.exec()
+			.then(() =&gt; {
+				Cart.updateOne(
+					{ _id: req.body._id, "items.itm": req.body.itm },
+					{
+						$pull: {
+							items: { itm: req.body.itm }
+						}
+					}
+				)
+					.exec()
+					.then(mod =&gt; res.json(mod))
+					.catch(err =&gt; res.status(500).json({ success: false }));
+			})
+			.catch(err =&gt; {
+				/*console.log(err);*/
+				res.status(404).json({ success: false });
+			});
+	} else {
+		if (req.body.hasOwnProperty("_id")) {
+			Cart.findById(req.body._id)
+				.exec()
+				.then((cart) =&gt; {
+					Cart.updateOne(
+						{ _id: req.body._id, "items.itm": req.body.itm },
+						{
+							$set: {
+								"items.$.count": req.body.count
+							}
+						}
+					)
+						.exec()
+						.then(mod =&gt; {
+							if (mod.n === 0) {
+								let pushItm = { itm: req.body.itm, count: req.body.count };
+								cart.items.push(pushItm);
+								cart.save().then(item =&gt; res.json(item));
+							} else {
+								res.json(mod);
+							}
+						})
+						.catch(err =&gt; res.status(500).json({ success: false }));
+				}).catch(err =&gt; res.status(404).json({ success: false }));
+		} else {
+			const newCart = new Cart({
+				_id: new mongoose.Types.ObjectId(),
+				confirmed: false,
+				items: []
+			});
 &nbsp;
-      newCart.save().then(item =&gt; {
-        User.findOne({ _id: req.body.userId })
-          .exec()
-          .then(user =&gt; {
-            user.carts.push(item._id);
-            user.save().then(res.status(201).json(user));
-          })
-          .catch(<span class="fstat-no" title="function not covered" >er</span>r =&gt; {
-            /*console.log(err);*/
-<span class="cstat-no" title="statement not covered" >            res.status(500).json({</span>
-              error: err
-            });
-          });
-      });
-    }
-  }
+			newCart.save().then(item =&gt; {
+				User.findOne({ _id: req.body.userId })
+					.exec()
+					.then(user =&gt; {
+						user.carts.push(item._id);
+						user.save().then(res.status(201).json(user));
+					})
+					.catch(<span class="fstat-no" title="function not covered" >er</span>r =&gt; {
+						/*console.log(err);*/
+<span class="cstat-no" title="statement not covered" >						res.status(500).json({</span>
+							error: err
+						});
+					});
+			});
+		}
+	}
 };
 &nbsp;
 exports.confirm_cart = (req, res) =&gt; {
-  Cart.findByIdAndUpdate(
-    req.body._id,
-    { confirmed: req.body.confirmed }
-  )
-    .exec()
-    .then(() =&gt; res.status(200).json({ success: true }))
-    .catch(<span class="fstat-no" title="function not covered" >er</span>r =&gt; {
-      /*console.log(err);*/
-<span class="cstat-no" title="statement not covered" >      res.status(404).json({ success: false });</span>
-    });
+	Cart.findByIdAndUpdate(
+		req.body._id,
+		{ confirmed: req.body.confirmed }
+	)
+		.exec()
+		.then(() =&gt; res.status(200).json({ success: true }))
+		.catch(<span class="fstat-no" title="function not covered" >er</span>r =&gt; {
+			/*console.log(err);*/
+<span class="cstat-no" title="statement not covered" >			res.status(404).json({ success: false });</span>
+		});
 };
 &nbsp;
 exports.delete_cart = (req, res) =&gt; {
-  Cart.findById(req.params.id)
-    .exec()
-    .then(item =&gt; item.remove().then(() =&gt; res.json({ success: true })))
-    .catch(<span class="fstat-no" title="function not covered" >_e</span>rr =&gt; { <span class="cstat-no" title="statement not covered" >res.status(404).json({ success: false }); <span class="cstat-no" title="statement not covered" ></span>console.log(req.params.id) </span>});
+	Cart.findById(req.params.id)
+		.exec()
+		.then(item =&gt; item.remove().then(() =&gt; res.json({ success: true })))
+		.catch(<span class="fstat-no" title="function not covered" >_e</span>rr =&gt; <span class="cstat-no" title="statement not covered" >res.status(404).json({ success: false }))</span>;
 };
 &nbsp;</pre></td></tr>
 </table></pre>
@@ -370,7 +370,7 @@ exports.delete_cart = (req, res) =&gt; {
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Thu Mar 21 2019 00:15:46 GMT+0530 (+0530)
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Thu Mar 21 2019 10:25:32 GMT+0530 (+0530)
 </div>
 </div>
 <script src="../../prettify.js"></script>

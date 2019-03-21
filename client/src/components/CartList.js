@@ -6,35 +6,35 @@ import {
 	Modal,
 	ModalHeader,
 	ModalBody
-} from 'reactstrap';
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
+} from "reactstrap";
+import React, { Component } from "react";
+import { connect } from "react-redux";
 import {
 	getCartList,
 	setCartsLoading,
 	addCart,
 	removeCart,
 	confirmCart
-} from '../actions/cartListActions';
-import { getCartItems } from '../actions/cartActions';
-import AppNavBar from './AppNavBar';
-import Cart from './cart';
+} from "../actions/cartListActions";
+import { getCartItems } from "../actions/cartActions";
+import AppNavBar from "./AppNavBar";
+import Cart from "./cart";
 
-import PropTypes from 'prop-types';
+import PropTypes from "prop-types";
 
 class CartList extends Component {
 	constructor(props) {
 		super(props);
-		const cookieList = document.cookie ? document.cookie.split('; ') : [];
+		const cookieList = document.cookie ? document.cookie.split("; ") : [];
 		const cookies = [];
-		let usrID = '';
+		let usrID = "";
 		cookieList.map(item => {
-			cookies.push(item.split('='));
+			cookies.push(item.split("="));
 		});
 		cookies.map(item => {
-			if (item[0] === 'user') {
+			if (item[0] === "user") {
 				usrID = decodeURIComponent(item[1])
-					.split(':')[1]
+					.split(":")[1]
 					.match(/"([^"]+)"/)[1];
 			}
 		});
@@ -83,7 +83,7 @@ class CartList extends Component {
 			const item = {
 				userId: this.state.userID
 			};
-			console.log('printed item', item);
+			console.log("printed item", item);
 			this.props.getCartList(item);
 		}
 		this.setState({
@@ -140,7 +140,7 @@ class CartList extends Component {
 						</div>
 						<div className="row">
 							{carts.map(({ _id, confirmed, items }, index) => (
-								<div className="col-lg-12 collapse-card" key={'cart' + _id}>
+								<div className="col-lg-12 collapse-card" key={"cart" + _id}>
 									<div className="box wow fadeInLeft collapse-card">
 										<div className="icon">
 											<i className="fas fa-cart-plus fa-3x" />
@@ -151,21 +151,21 @@ class CartList extends Component {
 										<div className="card-btn-wrapper">
 											<button
 												className="btn-cartlist btn-show-cart"
-												id={'item' + _id}
+												id={"item" + _id}
 											>
 												Show Cart
-  </button>
+											</button>
 										</div>
-										<UncontrolledCollapse toggler={'item' + _id}>
+										<UncontrolledCollapse toggler={"item" + _id}>
 											<Card>
 												<CardBody>
 													{items.map(({ count, itm }) => (
-														<div key={'item' + itm.productCode}>
+														<div key={"item" + itm.productCode}>
 															<div className="row">
 																<div className="col-12 col-sm-12 col-md-2 text-center">
 																	<img
 																		className="img-responsive"
-																		src={'/items/' + itm.productCode + '.jpg'}
+																		src={"/items/" + itm.productCode + ".jpg"}
 																		alt={itm.name}
 																		width={120}
 																		height={80}
@@ -188,12 +188,12 @@ class CartList extends Component {
 																<div className="col-12 col-sm-12 text-sm-center col-md-4 text-md-right row">
 																	<div
 																		className="col-3 col-sm-3 col-md-6 text-md-right"
-																		style={{ paddingTop: '5px' }}
+																		style={{ paddingTop: "5px" }}
 																	>
 																		<h6>
 																			<strong>
 																				$
-          {Number.parseFloat(itm.price).toFixed(
+																				{Number.parseFloat(itm.price).toFixed(
 																					2
 																				)}
 																				<span className="text-muted">x</span>
@@ -226,40 +226,40 @@ class CartList extends Component {
 															<div className="col-8">
 																<button
 																	className="btn-cartlist"
-																	id={'edit' + _id}
+																	id={"edit" + _id}
 																	onClick={this.editCart.bind(this, _id)}
 																>
 																	Edit Cart
-      </button>
+																</button>
 																<button
 																	className="btn-cartlist btn-cartlist-remove"
-																	id={'remove' + _id}
+																	id={"remove" + _id}
 																	onClick={this.removeCart.bind(this, _id)}
 																>
 																	Remove Cart
-      </button>
+																</button>
 																<button
 																	className="btn-cartlist btn-cartlist-confirm"
-																	id={'confirmed' + _id}
+																	id={"confirmed" + _id}
 																	onClick={this.confirmCart.bind(this, _id)}
 																>
 																	{!confirmed ? (
 																		<i
 																			className="fas fa-circle-notch fa-spin"
-																			style={{ marginRight: '8px' }}
+																			style={{ marginRight: "8px" }}
 																		/>
 																	) : (
-																			<i />
-																		)}
+																		<i />
+																	)}
 																	{confirmed
-																		? 'Stop processing'
-																		: 'Confirm cart'}
+																		? "Stop processing"
+																		: "Confirm cart"}
 																</button>
 															</div>
 															<div className="col-4">
 																<div
 																	className="float-right"
-																	style={{ margin: '5px' }}
+																	style={{ margin: "5px" }}
 																	id="total-price"
 																>
 																	Total price:
@@ -286,8 +286,8 @@ class CartList extends Component {
 						</div>
 						<button
 							className="btn-cartlist btn-add-cart"
-							id={'item'}
-							style={{ marginBottom: '1rem' }}
+							id={"item"}
+							style={{ marginBottom: "1rem" }}
 							onClick={this.addCart.bind(this, userId)}
 						>
 							Add Cart
