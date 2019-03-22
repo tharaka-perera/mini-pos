@@ -1,4 +1,4 @@
-# Cake-Mini-POS [![Build Status](https://travis-ci.org/NuwanTharaka/mini-pos.svg?branch=develop)](https://travis-ci.org/NuwanTharaka/mini-pos) ![Website](https://img.shields.io/website/https/cake-mini-pos.herokuapp.com.svg?down_color=lightgrey&down_message=offline&up_color=blue&up_message=online)
+# Cake-Mini-POS [![Build Status](https://travis-ci.org/NuwanTharaka/mini-pos.svg?branch=develop)](https://travis-ci.org/NuwanTharaka/mini-pos) [![codecov](https://codecov.io/gh/NuwanTharaka/mini-pos/branch/develop/graph/badge.svg)](https://codecov.io/gh/NuwanTharaka/mini-pos) ![Website](https://img.shields.io/website/https/cake-mini-pos.herokuapp.com.svg?down_color=lightgrey&down_message=offline&up_color=blue&up_message=online)
 
 Mini Point of Sale system for restaurants.
 
