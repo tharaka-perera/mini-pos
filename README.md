@@ -78,7 +78,7 @@ npm run lint
 For **Front-end**
 
 ```sh
-npm run lint
+npm run lint --prefix client
 ```
 
 ## File Structure
@@ -86,6 +86,7 @@ npm run lint
 Important files in the source code are listed below for convenience.
 
 ```sh
+mini-pos
 ├── api
 │   ├── controllers
 │   │   ├── carts.js
@@ -272,4 +273,4 @@ Important files in the source code are listed below for convenience.
 ```
 ## Maintainer
 
- - [@nNwanTharaka](https://github.com/NuwanTharaka)
+ - [@NuwanTharaka](https://github.com/NuwanTharaka)
