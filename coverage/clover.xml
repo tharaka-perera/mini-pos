@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1553144132116" clover="3.2.0">
-  <project timestamp="1553144132116" name="All files">
+<coverage generated="1553247105006" clover="3.2.0">
+  <project timestamp="1553247105007" name="All files">
     <metrics statements="165" coveredstatements="154" conditionals="16" coveredconditionals="16" methods="63" coveredmethods="53" elements="244" coveredelements="223" complexity="0" loc="165" ncloc="165" packages="5" files="12" classes="12"/>
     <package name="api.controllers">
       <metrics statements="103" coveredstatements="93" conditionals="12" coveredconditionals="12" methods="59" coveredmethods="49"/>
@@ -29,21 +29,21 @@
         <line num="56" count="2" type="stmt"/>
         <line num="58" count="2" type="stmt"/>
         <line num="61" count="1" type="stmt"/>
-        <line num="62" count="1" type="stmt"/>
-        <line num="64" count="2" type="stmt"/>
-        <line num="70" count="2" type="stmt"/>
+        <line num="63" count="1" type="stmt"/>
+        <line num="65" count="2" type="stmt"/>
         <line num="71" count="2" type="stmt"/>
-        <line num="74" count="2" type="stmt"/>
+        <line num="72" count="2" type="stmt"/>
         <line num="75" count="2" type="stmt"/>
-        <line num="79" count="0" type="stmt"/>
-        <line num="88" count="1" type="stmt"/>
+        <line num="76" count="2" type="stmt"/>
+        <line num="80" count="0" type="stmt"/>
         <line num="89" count="1" type="stmt"/>
-        <line num="94" count="1" type="stmt"/>
-        <line num="97" count="0" type="stmt"/>
-        <line num="101" count="1" type="stmt"/>
+        <line num="90" count="1" type="stmt"/>
+        <line num="92" count="1" type="stmt"/>
+        <line num="95" count="0" type="stmt"/>
+        <line num="99" count="1" type="stmt"/>
+        <line num="100" count="1" type="stmt"/>
         <line num="102" count="1" type="stmt"/>
-        <line num="104" count="1" type="stmt"/>
-        <line num="105" count="0" type="stmt"/>
+        <line num="103" count="0" type="stmt"/>
       </file>
       <file name="items.js" path="/home/nuwanp/mini-pos/api/controllers/items.js">
         <metrics statements="19" coveredstatements="16" conditionals="0" coveredconditionals="0" methods="11" coveredmethods="8"/>
@@ -82,39 +82,39 @@
         <line num="16" count="2" type="cond" truecount="2" falsecount="0"/>
         <line num="17" count="1" type="stmt"/>
         <line num="21" count="1" type="stmt"/>
-        <line num="23" count="1" type="stmt"/>
-        <line num="29" count="1" type="stmt"/>
-        <line num="33" count="1" type="stmt"/>
-        <line num="39" count="0" type="stmt"/>
+        <line num="22" count="1" type="stmt"/>
+        <line num="28" count="1" type="stmt"/>
+        <line num="32" count="1" type="stmt"/>
+        <line num="38" count="0" type="stmt"/>
         <line num="47" count="0" type="stmt"/>
         <line num="53" count="1" type="stmt"/>
         <line num="54" count="17" type="stmt"/>
         <line num="57" count="17" type="cond" truecount="2" falsecount="0"/>
         <line num="58" count="1" type="stmt"/>
         <line num="62" count="16" type="stmt"/>
-        <line num="64" count="16" type="cond" truecount="2" falsecount="0"/>
-        <line num="65" count="15" type="stmt"/>
-        <line num="75" count="15" type="stmt"/>
-        <line num="81" count="1" type="stmt"/>
-        <line num="89" count="0" type="stmt"/>
+        <line num="63" count="16" type="cond" truecount="2" falsecount="0"/>
+        <line num="64" count="15" type="stmt"/>
+        <line num="74" count="15" type="stmt"/>
+        <line num="80" count="1" type="stmt"/>
+        <line num="88" count="0" type="stmt"/>
+        <line num="94" count="1" type="stmt"/>
         <line num="95" count="1" type="stmt"/>
-        <line num="96" count="1" type="stmt"/>
-        <line num="99" count="1" type="stmt"/>
-        <line num="100" count="2" type="stmt"/>
-        <line num="102" count="1" type="stmt"/>
-        <line num="108" count="1" type="stmt"/>
-        <line num="114" count="1" type="stmt"/>
-        <line num="115" count="10" type="stmt"/>
-        <line num="122" count="9" type="stmt"/>
-        <line num="126" count="1" type="stmt"/>
-        <line num="154" count="1" type="stmt"/>
-        <line num="155" count="3" type="stmt"/>
-        <line num="158" count="2" type="stmt"/>
-        <line num="169" count="1" type="stmt"/>
-        <line num="171" count="1" type="stmt"/>
-        <line num="174" count="0" type="stmt"/>
+        <line num="98" count="1" type="stmt"/>
+        <line num="99" count="2" type="stmt"/>
+        <line num="101" count="1" type="stmt"/>
+        <line num="107" count="1" type="stmt"/>
+        <line num="113" count="1" type="stmt"/>
+        <line num="114" count="10" type="stmt"/>
+        <line num="121" count="9" type="stmt"/>
+        <line num="125" count="1" type="stmt"/>
+        <line num="153" count="1" type="stmt"/>
+        <line num="154" count="3" type="stmt"/>
+        <line num="157" count="2" type="stmt"/>
+        <line num="168" count="1" type="stmt"/>
+        <line num="170" count="1" type="stmt"/>
+        <line num="173" count="0" type="stmt"/>
         <line num="177" count="1" type="stmt"/>
-        <line num="181" count="1" type="stmt"/>
+        <line num="182" count="1" type="stmt"/>
       </file>
     </package>
     <package name="api.middleware">
@@ -151,12 +151,12 @@
         <line num="1" count="1" type="stmt"/>
         <line num="2" count="1" type="stmt"/>
         <line num="3" count="1" type="stmt"/>
-        <line num="7" count="1" type="stmt"/>
-        <line num="9" count="1" type="stmt"/>
-        <line num="11" count="1" type="stmt"/>
-        <line num="13" count="1" type="stmt"/>
-        <line num="15" count="1" type="stmt"/>
-        <line num="17" count="1" type="stmt"/>
+        <line num="5" count="1" type="stmt"/>
+        <line num="12" count="1" type="stmt"/>
+        <line num="19" count="1" type="stmt"/>
+        <line num="26" count="1" type="stmt"/>
+        <line num="33" count="1" type="stmt"/>
+        <line num="35" count="1" type="stmt"/>
       </file>
       <file name="items.js" path="/home/nuwanp/mini-pos/api/routes/items.js">
         <metrics statements="9" coveredstatements="9" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
@@ -165,10 +165,10 @@
         <line num="3" count="1" type="stmt"/>
         <line num="4" count="1" type="stmt"/>
         <line num="6" count="1" type="stmt"/>
-        <line num="8" count="1" type="stmt"/>
-        <line num="10" count="1" type="stmt"/>
-        <line num="17" count="1" type="stmt"/>
-        <line num="19" count="1" type="stmt"/>
+        <line num="13" count="1" type="stmt"/>
+        <line num="20" count="1" type="stmt"/>
+        <line num="32" count="1" type="stmt"/>
+        <line num="34" count="1" type="stmt"/>
       </file>
       <file name="user.js" path="/home/nuwanp/mini-pos/api/routes/user.js">
         <metrics statements="13" coveredstatements="13" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
@@ -176,15 +176,15 @@
         <line num="2" count="1" type="stmt"/>
         <line num="3" count="1" type="stmt"/>
         <line num="5" count="1" type="stmt"/>
-        <line num="7" count="1" type="stmt"/>
-        <line num="9" count="1" type="stmt"/>
-        <line num="11" count="1" type="stmt"/>
-        <line num="13" count="1" type="stmt"/>
-        <line num="15" count="1" type="stmt"/>
-        <line num="17" count="1" type="stmt"/>
+        <line num="12" count="1" type="stmt"/>
         <line num="19" count="1" type="stmt"/>
-        <line num="21" count="1" type="stmt"/>
-        <line num="23" count="1" type="stmt"/>
+        <line num="26" count="1" type="stmt"/>
+        <line num="33" count="1" type="stmt"/>
+        <line num="40" count="1" type="stmt"/>
+        <line num="47" count="1" type="stmt"/>
+        <line num="54" count="1" type="stmt"/>
+        <line num="61" count="1" type="stmt"/>
+        <line num="63" count="1" type="stmt"/>
       </file>
     </package>
     <package name="config">
