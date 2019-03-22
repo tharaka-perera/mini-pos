@@ -1,4 +1,5 @@
 # Cake-Mini-POS [![Build Status](https://travis-ci.com/NuwanTharaka/mini-pos.svg?token=E4PARbYNB2S3y8wFTeCr&branch=develop)](https://travis-ci.com/NuwanTharaka/mini-pos)
+![Website](https://img.shields.io/website/https/cake-mini-pos.herokuapp.com.svg?down_color=lightgrey&down_message=offline&up_color=blue&up_message=online)
 
 Mini Point of Sale system for restaurants.
 
