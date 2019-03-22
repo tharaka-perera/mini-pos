@@ -7,6 +7,9 @@ services:
 cache:
   directories:
     - "$HOME/.npm"
+env:
+  global:
+    - CODECOV_TOKEN="83a5fba3-2c96-4f4a-af53-7526b41003de"
 before_install:
   - npm config set loglevel warn
 install:
