@@ -16,6 +16,7 @@ install:
   - npm install
   - npm install --prefix client
   - npm install codecov
+  - npm install codecov --prefix client
 before_script:
   - sleep 5
 jobs:

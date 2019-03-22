@@ -1,4 +1,4 @@
-# Cake-Mini-POS [![Build Status](https://travis-ci.com/NuwanTharaka/mini-pos.svg?token=E4PARbYNB2S3y8wFTeCr&branch=develop)](https://travis-ci.com/NuwanTharaka/mini-pos)  ![Website](https://img.shields.io/website/https/cake-mini-pos.herokuapp.com.svg?down_color=lightgrey&down_message=offline&up_color=blue&up_message=online)
+# Cake-Mini-POS [![Build Status](https://travis-ci.org/NuwanTharaka/mini-pos.svg?branch=develop)](https://travis-ci.org/NuwanTharaka/mini-pos) ![Website](https://img.shields.io/website/https/cake-mini-pos.herokuapp.com.svg?down_color=lightgrey&down_message=offline&up_color=blue&up_message=online)
 
 Mini Point of Sale system for restaurants.
 
@@ -8,8 +8,8 @@ The deployed web application is available on [cake-mini-pos.herokuapp.com](https
 
 Currently there are two branches of the project are maintained, <br>
 
- - _`master`_ for the deployment (production) 
- - _`develop`_ containing source code under development 
+- _`master`_ for the deployment (production)
+- _`develop`_ containing source code under development
 
 The default is set to _`develop`_. It is recommended to clone the develop branch to make sure you receive most recent updates to the source code.
 
@@ -17,7 +17,7 @@ In the deployed version of the app, sign in option is disabled on UI in order to
 Use following credentials to login.
 
 _Email:`test@test.com`_ <br>
-_Password:`test`_ 
+_Password:`test`_
 
 To run a local version of the web app, clone the repository and run following commands at root of the repository.<br>
 **You’ll need to have Node 8.10.0 or later on your local development machine**
@@ -47,11 +47,13 @@ To test **Back-end API** at root folder run
 ```sh
 npm run test
 ```
+
 To perform **Front-end** tests, run ( assuming that you are at root folder )
 
 ```sh
 npm run test --prefix client
 ```
+
 That will cover all the reducers and actions except component UI tests.
 
 ### Test Coverage
@@ -75,11 +77,13 @@ To maintain the code clean and consistent, ESlint is used. To perform lint test 
 ```sh
 npm run lint
 ```
+
 For **Front-end**
 
 ```sh
 npm run lint --prefix client
 ```
+
 ## Documentation
 
 Documentation for back-end API is available on [Swagger Hub](https://app.swaggerhub.com/apis-docs/NuwanTharaka/Cake-mini-POS-documentation/1.0.0).
@@ -274,6 +278,7 @@ mini-pos
     └── items
 
 ```
+
 ## Maintainer
 
- - [@NuwanTharaka](https://github.com/NuwanTharaka)
+- [@NuwanTharaka](https://github.com/NuwanTharaka)
