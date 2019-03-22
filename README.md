@@ -80,6 +80,9 @@ For **Front-end**
 ```sh
 npm run lint --prefix client
 ```
+## Documentation
+
+Documentation for back-end API is available on [Swagger Hub](https://app.swaggerhub.com/apis-docs/NuwanTharaka/Cake-mini-POS-documentation/1.0.0).
 
 ## File Structure
 
