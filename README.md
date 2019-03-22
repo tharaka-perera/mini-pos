@@ -2,14 +2,21 @@
 
 Mini Point of Sale system for restaurants.
 
-Deployed web applicartion is availble on [cake-mini-pos.herokuapp.com](https://cake-mini-pos.herokuapp.com/)
+The deployed web application is available on [cake-mini-pos.herokuapp.com](https://cake-mini-pos.herokuapp.com/)
 
 ## Quick Overview
 
-In dedployed version of the app, signin option is disabled on UI (although it is available with API).<br>
-Use following credentials to login
+Currently there are two branches of the project are maintained, <br>
 
-_Email:`test@test.com`_ 
+ - _`master`_ for the deployment (production) 
+ - _`develop`_ containing source code under development 
+
+The default is set to _`develop`_. It is recommended to clone the develop branch to make sure you receive most recent updates to the source code.
+
+In the deployed version of the app, sign in option is disabled on UI in order to avoid spamming (although it is available over API).<br>
+Use following credentials to login.
+
+_Email:`test@test.com`_ <br>
 _Password:`test`_ 
 
 To run a local version of the web app, clone the repository and run following commands at root of the repository.<br>
@@ -21,9 +28,7 @@ npm install --prefix client
 npm run dev
 ```
 
-It will lauch a development version of the app.
-
-_`npm init <initializer>`_ 
+It will launch a development version of the app.
 
 ### Get Started
 
@@ -34,183 +39,237 @@ You need few softwares and packages to launch a functional local **Cake-Mini-POS
 
 Now you can run a development version of the application and perform tests locally without affecting production databases and servers.
 
-## Run tests
+## Run Tests
 
-Backend and frontend both are covered with unit and integration tests to ensure the fuctionality of the application.<br>
-To test **Backend API** at root folder run
+Back-end and front-end both are covered with unit and integration tests to ensure the proper functionality of the application.<br>
+To test **Back-end API** at root folder run
 
 ```sh
 npm run test
 ```
-To perform frontend tests run ( assuming that you are at root folder )
+To perform **Front-end** tests, run ( assuming that you are at root folder )
 
 ```sh
 npm run test --prefix client
 ```
 That will cover all the reducers and actions except component UI tests.
 
-### Test coverage
+### Test Coverage
 
-Individual coverages for 
+Individual coverage reports for back-end and front-end are available.
+
+```
+mini-pos
+├── coverage
+│   └── lcov-report
+│       └── index.html   **Back-end**
+└── client
+    └── coverage
+        └── index.html   **Front-end**
+```
+
+### Code Quality
+
+To maintain the code clean and consistent, ESlint is used. To perform lint test on **Back-end** code, run
 
 ```sh
-npx create-react-app my-app
+npm run lint
 ```
-
-_([npx](https://medium.com/@maybekatz/introducing-npx-an-npm-package-runner-55f7d4bd282b) comes with npm 5.2+ and higher, see [instructions for older npm versions](https://gist.github.com/gaearon/4064d3c23a77c74a3614c498a8bb1c5f))_
-
-### npm
+For **Front-end**
 
 ```sh
-npm init react-app my-app
+npm run lint
 ```
 
-_`npm init <initializer>` is available in npm 6+_
+## File Structure
 
-### Yarn
+Important files in the source code are listed below for convenience.
 
 ```sh
-yarn create react-app my-app
-```
-
-_`yarn create` is available in Yarn 0.25+_
-
-It will create a directory called `my-app` inside the current folder.<br>
-Inside that directory, it will generate the initial project structure and install the transitive dependencies:
-
-```
-my-app
-├── README.md
-├── node_modules
+├── api
+│   ├── controllers
+│   │   ├── carts.js
+│   │   ├── items.js
+│   │   └── user.js
+│   ├── middleware
+│   │   ├── check-auth.js
+│   │   ├── check-user.js
+│   │   └── image_uploader.js
+│   └── routes
+│       ├── carts.js
+│       ├── items.js
+│       └── user.js
+├── client
+│   ├── coverage
+│   │   ├── clover.xml
+│   │   ├── coverage-final.json
+│   │   ├── lcov.info
+│   │   └── lcov-report
+│   │       ├── actions
+│   │       │   ├── cartActions.js.html
+│   │       │   ├── cartListActions.js.html
+│   │       │   ├── index.html
+│   │       │   ├── itemActions.js.html
+│   │       │   ├── loginAction.js.html
+│   │       │   └── types.js.html
+│   │       ├── base.css
+│   │       ├── cartListReducer.js.html
+│   │       ├── cartReducer.js.html
+│   │       ├── coverage
+│   │       │   └── lcov-report
+│   │       │       ├── index.html
+│   │       │       ├── prettify.js.html
+│   │       │       └── sorter.js.html
+│   │       ├── index.html
+│   │       ├── index.js.html
+│   │       ├── itemReducer.js.html
+│   │       ├── loginReducer.js.html
+│   │       ├── prettify.css
+│   │       ├── prettify.js
+│   │       ├── prettify.js.html
+│   │       ├── reducers
+│   │       │   ├── cartListReducer.js.html
+│   │       │   ├── cartReducer.js.html
+│   │       │   ├── index.html
+│   │       │   ├── index.js.html
+│   │       │   ├── itemReducer.js.html
+│   │       │   └── loginReducer.js.html
+│   │       ├── sort-arrow-sprite.png
+│   │       ├── sorter.js
+│   │       ├── sorter.js.html
+│   │       └── src
+│   │           ├── actions
+│   │           │   ├── cartActions.js.html
+│   │           │   ├── cartListActions.js.html
+│   │           │   ├── index.html
+│   │           │   ├── itemActions.js.html
+│   │           │   ├── loginAction.js.html
+│   │           │   └── types.js.html
+│   │           ├── App.js.html
+│   │           ├── components
+│   │           │   ├── AppContainer.js.html
+│   │           │   ├── AppNavBar.js.html
+│   │           │   ├── cart.js.html
+│   │           │   ├── CartList.js.html
+│   │           │   ├── index.html
+│   │           │   ├── ItemModal.js.html
+│   │           │   ├── Login.js.html
+│   │           │   ├── NotFound.js.html
+│   │           │   └── shoppingList.js.html
+│   │           ├── index.html
+│   │           ├── index.js.html
+│   │           ├── reducers
+│   │           │   ├── cartListReducer.js.html
+│   │           │   ├── cartReducer.js.html
+│   │           │   ├── index.html
+│   │           │   ├── index.js.html
+│   │           │   ├── itemReducer.js.html
+│   │           │   └── loginReducer.js.html
+│   │           ├── serviceWorker.js.html
+│   │           ├── setupProxy.js.html
+│   │           └── store.js.html
+│   ├── etc
+│   ├── package.json
+│   ├── public
+│   │   ├── favicon.ico
+│   │   ├── index.html
+│   │   └── manifest.json
+│   └── src
+│       ├── actions
+│       │   ├── cartActions.js
+│       │   ├── cartListActions.js
+│       │   ├── itemActions.js
+│       │   ├── loginAction.js
+│       │   └── types.js
+│       ├── App.js
+│       ├── components
+│       │   ├── AppContainer.js
+│       │   ├── AppNavBar.js
+│       │   ├── cart.js
+│       │   ├── CartList.js
+│       │   ├── ItemModal.js
+│       │   ├── Login.js
+│       │   ├── NotFound.js
+│       │   └── shoppingList.js
+│       ├── css
+│       │   ├── all.min.css
+│       │   └── App.css
+│       ├── img
+│       │   ├── apple-touch-icon.png
+│       │   ├── favicon.png
+│       │   ├── intro-bg2.jpg
+│       │   └── intro-bg.jpg
+│       ├── index.js
+│       ├── reducers
+│       │   ├── cartListReducer.js
+│       │   ├── cartReducer.js
+│       │   ├── index.js
+│       │   ├── itemReducer.js
+│       │   └── loginReducer.js
+│       ├── serviceWorker.js
+│       ├── setupProxy.js
+│       ├── store.js
+│       ├── __test__
+│       │   ├── cartActions.test.js
+│       │   ├── cartListActions.test.js
+│       │   ├── cartListComponent.test.js.BAK
+│       │   ├── cartListReducer.test.js
+│       │   ├── cartReducer.test.js
+│       │   ├── itemActions.test.js
+│       │   ├── itemComponent.test.js
+│       │   ├── itemReducer.test.js
+│       │   ├── loginActions.test.js
+│       │   ├── loginComponent.test.js
+│       │   ├── loginReducer.test.js
+│       │   ├── notFoundComponent.test.js
+│       │   └── __snapshots__
+│       └── webfonts
+├── config
+│   └── keys.js
+├── coverage
+│   ├── clover.xml
+│   ├── coverage-final.json
+│   ├── lcov.info
+│   └── lcov-report
+│       ├── api
+│       │   ├── controllers
+│       │   │   ├── carts.js.html
+│       │   │   ├── index.html
+│       │   │   ├── items.js.html
+│       │   │   └── user.js.html
+│       │   ├── middleware
+│       │   │   ├── check-auth.js.html
+│       │   │   ├── image_uploader.js.html
+│       │   │   └── index.html
+│       │   └── routes
+│       │       ├── carts.js.html
+│       │       ├── index.html
+│       │       ├── items.js.html
+│       │       └── user.js.html
+│       ├── config
+│       │   ├── index.html
+│       │   └── keys.js.html
+│       ├── index.html
+│       └── models
+│           ├── Cart.js.html
+│           ├── index.html
+│           ├── Item.js.html
+│           └── User.js.html
+├── jest.config.js
+├── models
+│   ├── Cart.js
+│   ├── Item.js
+│   └── User.js
 ├── package.json
-├── .gitignore
-├── public
-│   ├── favicon.ico
-│   ├── index.html
-│   └── manifest.json
-└── src
-    ├── App.css
-    ├── App.js
-    ├── App.test.js
-    ├── index.css
-    ├── index.js
-    ├── logo.svg
-    └── serviceWorker.js
+├── README.md
+├── server.js
+├── tests
+│   ├── nodeapi.test.js
+│   └── testFiles
+└── uploads
+    └── items
+
 ```
+## Maintainer
 
-No configuration or complicated folder structures, just the files you need to build your app.<br>
-Once the installation is done, you can open your project folder:
-
-```sh
-cd my-app
-```
-
-Inside the newly created project, you can run some built-in commands:
-
-### `npm start` or `yarn start`
-
-Runs the app in development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will automatically reload if you make changes to the code.<br>
-You will see the build errors and lint warnings in the console.
-
-<p align='center'>
-<img src='https://cdn.rawgit.com/marionebl/create-react-app/9f62826/screencast-error.svg' width='600' alt='Build errors'>
-</p>
-
-### `npm test` or `yarn test`
-
-Runs the test watcher in an interactive mode.<br>
-By default, runs tests related to files changed since the last commit.
-
-[Read more about testing.](https://facebook.github.io/create-react-app/docs/running-tests)
-
-### `npm run build` or `yarn build`
-
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.<br>
-
-Your app is ready to be deployed.
-
-## User Guide
-
-You can find detailed instructions on using Create React App and many tips in [its documentation](https://facebook.github.io/create-react-app/).
-
-## How to Update to New Versions?
-
-Please refer to the [User Guide](https://facebook.github.io/create-react-app/docs/updating-to-new-releases) for this and other information.
-
-## Philosophy
-
-- **One Dependency:** There is just one build dependency. It uses Webpack, Babel, ESLint, and other amazing projects, but provides a cohesive curated experience on top of them.
-
-- **No Configuration Required:** You don't need to configure anything. A reasonably good configuration of both development and production builds is handled for you so you can focus on writing code.
-
-- **No Lock-In:** You can “eject” to a custom setup at any time. Run a single command, and all the configuration and build dependencies will be moved directly into your project, so you can pick up right where you left off.
-
-## What’s Included?
-
-Your environment will have everything you need to build a modern single-page React app:
-
-- React, JSX, ES6, TypeScript and Flow syntax support.
-- Language extras beyond ES6 like the object spread operator.
-- Autoprefixed CSS, so you don’t need `-webkit-` or other prefixes.
-- A fast interactive unit test runner with built-in support for coverage reporting.
-- A live development server that warns about common mistakes.
-- A build script to bundle JS, CSS, and images for production, with hashes and sourcemaps.
-- An offline-first [service worker](https://developers.google.com/web/fundamentals/getting-started/primers/service-workers) and a [web app manifest](https://developers.google.com/web/fundamentals/engage-and-retain/web-app-manifest/), meeting all the [Progressive Web App](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app) criteria. (_Note: Using the service worker is opt-in as of `react-scripts@2.0.0` and higher_)
-- Hassle-free updates for the above tools with a single dependency.
-
-Check out [this guide](https://github.com/nitishdayal/cra_closer_look) for an overview of how these tools fit together.
-
-The tradeoff is that **these tools are preconfigured to work in a specific way**. If your project needs more customization, you can ["eject"](https://facebook.github.io/create-react-app/docs/available-scripts#npm-run-eject) and customize it, but then you will need to maintain this configuration.
-
-## Popular Alternatives
-
-Create React App is a great fit for:
-
-- **Learning React** in a comfortable and feature-rich development environment.
-- **Starting new single-page React applications.**
-- **Creating examples** with React for your libraries and components.
-
-Here are a few common cases where you might want to try something else:
-
-- If you want to **try React** without hundreds of transitive build tool dependencies, consider [using a single HTML file or an online sandbox instead](https://reactjs.org/docs/try-react.html).
-
-- If you need to **integrate React code with a server-side template framework** like Rails, Django or Symfony, or if you’re **not building a single-page app**, consider using [nwb](https://github.com/insin/nwb), or [Neutrino](https://neutrino.js.org/) which are more flexible. For Rails specifically, you can use [Rails Webpacker](https://github.com/rails/webpacker). For Symfony, try [Symfony's Webpack Encore](https://symfony.com/doc/current/frontend/encore/reactjs.html).
-
-- If you need to **publish a React component**, [nwb](https://github.com/insin/nwb) can [also do this](https://github.com/insin/nwb#react-components-and-libraries), as well as [Neutrino's react-components preset](https://neutrino.js.org/packages/react-components/).
-
-- If you want to do **server rendering** with React and Node.js, check out [Next.js](https://github.com/zeit/next.js/) or [Razzle](https://github.com/jaredpalmer/razzle). Create React App is agnostic of the backend, and just produces static HTML/JS/CSS bundles.
-
-- If your website is **mostly static** (for example, a portfolio or a blog), consider using [Gatsby](https://www.gatsbyjs.org/) instead. Unlike Create React App, it pre-renders the website into HTML at the build time.
-
-- Finally, if you need **more customization**, check out [Neutrino](https://neutrino.js.org/) and its [React preset](https://neutrino.js.org/packages/react/).
-
-All of the above tools can work with little to no configuration.
-
-If you prefer configuring the build yourself, [follow this guide](https://reactjs.org/docs/add-react-to-an-existing-app.html).
-
-## Contributing
-
-We'd love to have your helping hand on `create-react-app`! See [CONTRIBUTING.md](CONTRIBUTING.md) for more information on what we're looking for and how to get started.
-
-## React Native
-
-Looking for something similar, but for React Native?<br>
-Check out [Expo CLI](https://github.com/expo/expo-cli).
-
-## Acknowledgements
-
-We are grateful to the authors of existing related projects for their ideas and collaboration:
-
-- [@eanplatter](https://github.com/eanplatter)
-- [@insin](https://github.com/insin)
-- [@mxstbr](https://github.com/mxstbr)
-
-## License
-
-Create React App is open source software [licensed as MIT](https://github.com/facebook/create-react-app/blob/master/LICENSE).
+ - [@nNwanTharaka](https://github.com/NuwanTharaka)
